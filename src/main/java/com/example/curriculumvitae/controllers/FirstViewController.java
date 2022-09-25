@@ -32,6 +32,8 @@ public class FirstViewController {
     private Stage stage;
     private Scene scene;
     private Parent root;
+    private Pattern pattern;
+    private Matcher matcher;
 
     private final String[] specialityName = {
             "Автоматизация технологических процессов и производств (по отраслям)",
@@ -92,18 +94,25 @@ public class FirstViewController {
 
     private void checkDateOfBirth(){
         String regex = "(0?[1-9]|[12][0-9]|3[01])([\\.\\\\\\/-])(0?[1-9]|1[012])\\2(((19|20)\\d\\d)|(\\d\\d))";
-        Pattern pattern = Pattern.compile(regex);
-        Matcher matcher = pattern.matcher(dateOfBirth.getText());
+        pattern = Pattern.compile(regex);
+        matcher = pattern.matcher(dateOfBirth.getText());
 
         if (!matcher.matches()){
-
+            System.out.println("error in DoB");
+            return;
         }
 
     }
 
     private void checkPhoneNumber(){
         String regex = "^((8|\\+7)[\\- ]?)?(\\(?\\d{3}\\)?[\\- ]?)?[\\d\\- ]{7,10}$";
+        pattern = Pattern.compile(regex);
+        matcher = pattern.matcher(phoneNumber.getText());
 
+        if (!matcher.matches()){
+            System.out.println("error in PN");
+            return;
+        }
     }
 
     private void checkMailAddress(){
