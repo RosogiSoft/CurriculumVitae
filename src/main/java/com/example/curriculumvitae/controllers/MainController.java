@@ -1,4 +1,4 @@
-package com.example.curriculumvitae;
+package com.example.curriculumvitae.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
