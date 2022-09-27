@@ -1,5 +1,6 @@
 package com.example.curriculumvitae;
 
+import com.example.curriculumvitae.databaseModel.DataBaseConnect;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,6 +13,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -97,6 +99,8 @@ public class FirstViewController {
         MainController.person.setMailAddress(mailAddress.getText());
         MainController.person.setGroupNumber(groupNumber.getText());
         MainController.person.setSpeciality(speciality.getValue());
+
+        DataBaseConnect.addData(MainController.person);
     }
 
     private boolean checkInput() {
