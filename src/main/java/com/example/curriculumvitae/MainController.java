@@ -14,11 +14,16 @@ import java.util.Objects;
 
 public class MainController {
 
-
+    public static Person person;
     public Label errorLog;
     private Stage stage;
     private Scene scene;
     private Parent root;
+
+    public void initialize(){
+        person = new Person();
+    }
+
     public void startButton(ActionEvent actionEvent) throws IOException {
         connect();
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("first_view.fxml")));

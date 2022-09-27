@@ -4,6 +4,6 @@ module com.example.curriculumvitae {
     requires java.sql;
 
 
-    opens com.example.curriculumvitae to javafx.fxml;
     exports com.example.curriculumvitae;
+    opens com.example.curriculumvitae to javafx.fxml;
 }

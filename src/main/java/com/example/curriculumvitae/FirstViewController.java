@@ -12,7 +12,6 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -29,6 +28,14 @@ public class FirstViewController {
     public TextField dateOfBirth;
     @FXML
     public TextField name;
+    @FXML
+    public Label errorDate;
+    @FXML
+    public Label errorNumber;
+    @FXML
+    public Label errorMail;
+    @FXML
+    public Label errorGroup;
 
     private Stage stage;
     private Scene scene;
@@ -71,62 +78,105 @@ public class FirstViewController {
     }
 
     public void nextScreen(ActionEvent actionEvent) throws IOException {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("second_view.fxml")));
-        Stage stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
 
-    private void checkInput(){
-        checkName();
-        checkDateOfBirth();
-        checkPhoneNumber();
-        checkMailAddress();
-        checkGroupNumber();
-        checkSpeciality();
+        if (checkInput()){
+            writeData();
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("second_view.fxml")));
+            Stage stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }
 
     }
 
-    private void checkName(){
-        String regex = "";
+    private void writeData(){
+        MainController.person.setName(name.getText());
+        MainController.person.setDateOfBirth(dateOfBirth.getText());
+        MainController.person.setPhoneNumber(phoneNumber.getText());
+        MainController.person.setMailAddress(mailAddress.getText());
+        MainController.person.setGroupNumber(groupNumber.getText());
+        MainController.person.setSpeciality(speciality.getValue());
+    }
+
+    private boolean checkInput() {
+        if (!checkName()|| !checkDateOfBirth() || !checkPhoneNumber()
+                || !checkMailAddress() || !checkPhoneNumber() || !checkGroupNumber() || !checkSpeciality()){
+            return false;
+        }
+        return true;
 
     }
 
-    private void checkDateOfBirth(){
+    private boolean checkName(){
+        return !name.getText().isEmpty();
+    }
+    
+    private boolean checkDateOfBirth(){
         String regex = "(0?[1-9]|[12][0-9]|3[01])([\\.\\\\\\/-])(0?[1-9]|1[012])\\2(((19|20)\\d\\d)|(\\d\\d))";
         pattern = Pattern.compile(regex);
         matcher = pattern.matcher(dateOfBirth.getText());
 
         if (!matcher.matches()){
             System.out.println("error in DoB");
-            return;
-        }
 
+            errorDate.setVisible(true);
+            errorDate.setText("Неправильно введена дата рождения");
+            return false;
+        }
+        errorDate.setVisible(false);
+        return true;
     }
 
-    private void checkPhoneNumber(){
+    private boolean checkPhoneNumber(){
+
         String regex = "^((8|\\+7)[\\- ]?)?(\\(?\\d{3}\\)?[\\- ]?)?[\\d\\- ]{7,10}$";
         pattern = Pattern.compile(regex);
         matcher = pattern.matcher(phoneNumber.getText());
 
         if (!matcher.matches()){
             System.out.println("error in PN");
-            return;
+            errorNumber.setVisible(true);
+            errorNumber.setText("Неправильно введена дата рождения");
+            return false;
         }
+        errorNumber.setVisible(false);
+        return true;
     }
 
-    private void checkMailAddress(){
-        String regex = "";
+    private boolean checkMailAddress()  {
+        String regex = "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$";
+        pattern = Pattern.compile(regex);
+        matcher = pattern.matcher(mailAddress.getText());
 
+        if (!matcher.matches()){
+            System.out.println("error in MA");
+            errorMail.setVisible(true);
+            errorMail.setText("Неправильно введена дата рождения");
+            return false;
+        }
+        errorMail.setVisible(false);
+        return true;
     }
 
-    private void checkGroupNumber(){
-        String regex = "";
+    private boolean checkGroupNumber()   {
+        String regex = "[1-5]\\-[А-я][А-я]?[А-я]?[А-я]?[А-я][1-9]?[0-9]\\-?[1-9]?[0-9]";
+        pattern = Pattern.compile(regex);
+        matcher = pattern.matcher(groupNumber.getText());
 
+        if (!matcher.matches()){
+            System.out.println("error in GN");
+            errorGroup.setVisible(true);
+            errorGroup.setText("Неправильно введена дата рождения");
+            return false;
+        }
+        errorGroup.setVisible(false);
+        return true;
     }
 
-    private void checkSpeciality(){
-        String regex = "";
+    private boolean checkSpeciality(){
+        return !speciality.getValue().isEmpty();
     }
+
+            
 }
