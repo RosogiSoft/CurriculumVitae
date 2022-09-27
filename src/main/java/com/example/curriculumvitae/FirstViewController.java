@@ -78,9 +78,10 @@ public class FirstViewController {
     }
 
     public void nextScreen(ActionEvent actionEvent) throws IOException {
+
         if (checkInput()){
             writeData();
-            Parent root = FXMLLoader.load(getClass().getResource("second_view.fxml"));
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("second_view.fxml")));
             Stage stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
@@ -110,14 +111,15 @@ public class FirstViewController {
     private boolean checkName(){
         return !name.getText().isEmpty();
     }
-
-    private boolean checkDateOfBirth() {
+    
+    private boolean checkDateOfBirth(){
         String regex = "(0?[1-9]|[12][0-9]|3[01])([\\.\\\\\\/-])(0?[1-9]|1[012])\\2(((19|20)\\d\\d)|(\\d\\d))";
         pattern = Pattern.compile(regex);
         matcher = pattern.matcher(dateOfBirth.getText());
 
         if (!matcher.matches()){
             System.out.println("error in DoB");
+
             errorDate.setVisible(true);
             errorDate.setText("Неправильно введена дата рождения");
             return false;
@@ -126,7 +128,8 @@ public class FirstViewController {
         return true;
     }
 
-    private boolean checkPhoneNumber()  {
+    private boolean checkPhoneNumber(){
+
         String regex = "^((8|\\+7)[\\- ]?)?(\\(?\\d{3}\\)?[\\- ]?)?[\\d\\- ]{7,10}$";
         pattern = Pattern.compile(regex);
         matcher = pattern.matcher(phoneNumber.getText());
@@ -175,4 +178,5 @@ public class FirstViewController {
         return !speciality.getValue().isEmpty();
     }
 
+            
 }
