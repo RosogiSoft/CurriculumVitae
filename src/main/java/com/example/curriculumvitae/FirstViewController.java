@@ -12,6 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -70,7 +71,7 @@ public class FirstViewController {
     }
 
     public void nextScreen(ActionEvent actionEvent) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("second_view.fxml"));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("second_view.fxml")));
         Stage stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -127,6 +128,5 @@ public class FirstViewController {
 
     private void checkSpeciality(){
         String regex = "";
-
     }
 }

@@ -10,6 +10,8 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
+
 public class MainController {
 
 
@@ -19,7 +21,7 @@ public class MainController {
     private Parent root;
     public void startButton(ActionEvent actionEvent) throws IOException {
         connect();
-        Parent root = FXMLLoader.load(getClass().getResource("first_view.fxml"));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("first_view.fxml")));
         Stage stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

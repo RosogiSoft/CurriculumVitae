@@ -131,24 +131,22 @@
          </padding>
       </HBox>
       <HBox prefHeight="18.0" prefWidth="500.0">
-         <children>
-            <Label prefHeight="19.0" prefWidth="120.0" text="Направление">
-               <HBox.margin>
-                  <Insets left="10.0" right="10.0" />
-               </HBox.margin>
-               <font>
-                  <Font name="Arial" size="13.0" />
-               </font>
-            </Label>
-            <ChoiceBox fx:id="speciality" prefHeight="26.0" prefWidth="295.0">
-               <HBox.margin>
-                  <Insets left="10.0" right="10.0" />
-               </HBox.margin>
-            </ChoiceBox>
-         </children>
          <padding>
-            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
          </padding>
+         <Label prefHeight="19.0" prefWidth="120.0" text="Направление">
+            <HBox.margin>
+               <Insets left="10.0" right="10.0"/>
+            </HBox.margin>
+            <font>
+               <Font name="Arial" size="13.0"/>
+            </font>
+         </Label>
+         <ChoiceBox fx:id="speciality" prefHeight="26.0" prefWidth="295.0">
+            <HBox.margin>
+               <Insets left="10.0" right="10.0"/>
+            </HBox.margin>
+         </ChoiceBox>
       </HBox>
       <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#nextScreen" prefHeight="26.0" prefWidth="74.0" text="Дальше" textAlignment="CENTER">
          <VBox.margin>
