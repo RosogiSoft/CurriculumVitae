@@ -99,8 +99,6 @@ public class FirstViewController {
         MainController.person.setMailAddress(mailAddress.getText());
         MainController.person.setGroupNumber(groupNumber.getText());
         MainController.person.setSpeciality(speciality.getValue());
-
-        DataBaseConnect.addData(MainController.person);
     }
 
     private boolean checkInput() {
