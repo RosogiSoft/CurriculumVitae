@@ -46,6 +46,7 @@ public class SecondViewController {
 
     public void nextButton(ActionEvent actionEvent) throws IOException {
         DataBaseConnect.addData(MainController.person);
+        DataBaseConnect.addDataPic(MainController.person);
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("third_view.fxml")));
         Stage stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);

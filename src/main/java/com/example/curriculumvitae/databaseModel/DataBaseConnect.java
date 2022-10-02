@@ -20,7 +20,6 @@ public class DataBaseConnect {
     }
 
     public static void addData(Person person){
-        String sqlQuery = "INSERT INTO students_image(image) VALUES (?)";
         String sqlQ =
                 "INSERT INTO student(studentName, dateOfBirth, telephoneNumber, emailAdress, groupNumber,speciality)"
         + "VALUES (?, ?, ?, ?, ?, ?)";
@@ -35,11 +34,19 @@ public class DataBaseConnect {
             statementOne.addBatch();
             statementOne.executeBatch();
             //Test of image load in database
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
+    public static void addDataPic(Person personPic){
+        try(Connection conn = connect()){
+            String sqlQuery = "INSERT INTO students_image(image) VALUES (?)";
             PreparedStatement statementTwo = conn.prepareStatement(sqlQuery);
-            statementTwo.setBinaryStream(1,person.getImageFileStream(),(int) person.getImageFile().length());
+            statementTwo.setBinaryStream(1,personPic.getImageFileStream(),
+                    (int) personPic.getImageFile().length());
             statementTwo.addBatch();
             statementTwo.executeBatch();
-        } catch (SQLException e){
+        }catch (SQLException e){
             e.printStackTrace();
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
