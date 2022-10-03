@@ -3,10 +3,9 @@ package com.example.curriculumvitae.databaseModel;
 import com.example.curriculumvitae.Person;
 
 import java.io.FileNotFoundException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DataBaseConnect {
 
@@ -51,5 +50,28 @@ public class DataBaseConnect {
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public static String[] getSpecializationData(){
+        ArrayList<String> namesArrayList = new ArrayList<String>();
+        String[] names;
+        String sqlQuery = "SELECT speciality_name FROM resume_database.speciality_names";
+        try(Connection conn = connect()){
+            Statement statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery(sqlQuery);
+            while (rs.next()){
+                namesArrayList.add(rs.getString("speciality_name"));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        names = new String[namesArrayList.size()];
+
+        for (int i = 0; i < namesArrayList.size();i++){
+            names[i] = namesArrayList.get(i);
+        }
+
+        return names;
     }
 }

@@ -3,7 +3,6 @@ package com.example.curriculumvitae;
 import javafx.scene.control.CheckBox;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class ThirdViewController {
 

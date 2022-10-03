@@ -24,7 +24,10 @@
             <Insets top="20.0" />
          </VBox.margin>
       </HBox>
-      <Label fx:id="errorImage" disable="true" prefHeight="40.0" prefWidth="553.0" textAlignment="CENTER" wrapText="true" />
-      <Button mnemonicParsing="false" onAction="#nextButton" prefHeight="17.0" prefWidth="521.0" text="Дальше" />
+      <Button mnemonicParsing="false" onAction="#nextButton" prefHeight="17.0" prefWidth="521.0" text="Дальше">
+         <VBox.margin>
+            <Insets top="10.0" />
+         </VBox.margin></Button>
+      <Label fx:id="errorImage" disable="true" prefHeight="40.0" prefWidth="553.0" textAlignment="CENTER" textFill="RED" wrapText="true" />
    </children>
 </VBox>
