@@ -12,6 +12,7 @@ public class Person {
     private String groupNumber;
     private String speciality;
     private File image;
+    private int specialityCode;
 
     public String getName() {
         return name;
@@ -73,6 +74,15 @@ public class Person {
 
         this.image = image;
     }
+
+    public int getSpecialityCode() {
+        return specialityCode;
+    }
+
+    public void setSpecialityCode(int specialityCode) {
+        this.specialityCode = specialityCode;
+    }
+
     public Person(){
 
     }
@@ -91,5 +101,4 @@ public class Person {
     public String returnData(String name){
         return this.name;
     }
-
 }

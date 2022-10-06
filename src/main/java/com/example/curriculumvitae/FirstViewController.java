@@ -100,6 +100,14 @@ public class FirstViewController {
         MainController.person.setMailAddress(mailAddress.getText());
         MainController.person.setGroupNumber(groupNumber.getText());
         MainController.person.setSpeciality(speciality.getValue());
+        //В методе описать забор значения из таблицы в БД по выбранному тексту в боксе
+        //MainController.person.setSpecialityCode(specialityCodeGenerator());
+    }
+
+    private int specialityCodeGenerator(){
+        int code = 1;
+
+        return code;
     }
 
     private boolean checkInput() {

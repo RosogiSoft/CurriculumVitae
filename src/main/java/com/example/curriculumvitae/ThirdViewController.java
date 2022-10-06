@@ -21,9 +21,13 @@ public class ThirdViewController {
     public CheckBox checkBox13;
     public CheckBox checkBox14;
     public CheckBox checkBox15;
-
+    ArrayList<CheckBox> checkBoxes;
     public void initialize(){
-        ArrayList<CheckBox> checkBoxes = new ArrayList<>();
+        setCheckBoxArrayList();
+    }
+
+    private void setCheckBoxArrayList(){
+        checkBoxes = new ArrayList<>();
         checkBoxes.add(checkBox1);
         checkBoxes.add(checkBox2);
         checkBoxes.add(checkBox3);
