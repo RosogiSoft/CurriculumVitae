@@ -13,7 +13,6 @@ public class DataBaseConnect {
     private static final String user = "igorvasiltsev";
     private static final String password = "45034691";
 
-
     public static Connection connect() throws SQLException {
         return DriverManager.getConnection(url, user, password);
     }
@@ -32,7 +31,6 @@ public class DataBaseConnect {
             statementOne.setString(6, person.getSpeciality());
             statementOne.addBatch();
             statementOne.executeBatch();
-            //Test of image load in database
         } catch (SQLException e){
             e.printStackTrace();
         }
@@ -52,9 +50,8 @@ public class DataBaseConnect {
         }
     }
 
-    public static String[] getSpecializationData(){
-        ArrayList<String> namesArrayList = new ArrayList<String>();
-        String[] names;
+    public static ArrayList<String> getSpecializationData(){
+        ArrayList<String> namesArrayList = new ArrayList<>();
         String sqlQuery = "SELECT speciality_name FROM resume_database.speciality_names";
         try(Connection conn = connect()){
             Statement statement = conn.createStatement();
@@ -66,12 +63,6 @@ public class DataBaseConnect {
             throw new RuntimeException(e);
         }
 
-        names = new String[namesArrayList.size()];
-
-        for (int i = 0; i < namesArrayList.size();i++){
-            names[i] = namesArrayList.get(i);
-        }
-
-        return names;
+        return namesArrayList;
     }
 }

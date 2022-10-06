@@ -13,6 +13,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -75,9 +76,10 @@ public class FirstViewController {
             "Другое..."
     };*/
 
-    public void initialize(){
-        speciality.getItems().addAll(DataBaseConnect.getSpecializationData());
+    private ArrayList<String> specData = DataBaseConnect.getSpecializationData();
 
+    public void initialize(){
+        speciality.getItems().addAll(specData);
     }
 
     public void nextScreen(ActionEvent actionEvent) throws IOException {
@@ -102,6 +104,14 @@ public class FirstViewController {
         MainController.person.setSpeciality(speciality.getValue());
         //В методе описать забор значения из таблицы в БД по выбранному тексту в боксе
         //MainController.person.setSpecialityCode(specialityCodeGenerator());
+        /*for (String spec : speciality.getItems()){
+            switch (spec){
+                case "Инфокоммуникационные сети и системы связи":
+                    bundle.add("хуй");
+                    bundle.add("хуй");
+                    break;
+            }
+        }*/
     }
 
     private int specialityCodeGenerator(){
@@ -188,6 +198,4 @@ public class FirstViewController {
     private boolean checkSpeciality(){
         return !speciality.getValue().isEmpty();
     }
-
-            
 }

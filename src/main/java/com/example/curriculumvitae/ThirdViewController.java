@@ -22,11 +22,13 @@ public class ThirdViewController {
     public CheckBox checkBox14;
     public CheckBox checkBox15;
     ArrayList<CheckBox> checkBoxes;
+
     public void initialize(){
+
         setCheckBoxArrayList();
     }
 
-    private void setCheckBoxArrayList(){
+    public void setCheckBoxArrayList(){
         checkBoxes = new ArrayList<>();
         checkBoxes.add(checkBox1);
         checkBoxes.add(checkBox2);
@@ -43,6 +45,18 @@ public class ThirdViewController {
         checkBoxes.add(checkBox13);
         checkBoxes.add(checkBox14);
         checkBoxes.add(checkBox15);
+
+        switch (MainController.person.getSpeciality()){
+            case "Инфокоммуникационные сети и системы связи":
+                for (CheckBox checkBox : checkBoxes){
+                    checkBox.setText("хуй");
+                }break;
+
+            case "Информационная безопасность телекоммуникационных систем":
+                for (CheckBox checkBox : checkBoxes){
+                    checkBox.setText("залупа");
+                }break;
+        }
     }
 
 
