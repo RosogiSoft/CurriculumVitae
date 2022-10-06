@@ -1,5 +1,9 @@
 package com.example.curriculumvitae;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+
 public class Person {
     private String name;
     private String dateOfBirth;
@@ -7,6 +11,8 @@ public class Person {
     private String mailAddress;
     private String groupNumber;
     private String speciality;
+    private File image;
+    private int specialityCode;
 
     public String getName() {
         return name;
@@ -56,6 +62,27 @@ public class Person {
         this.speciality = speciality;
     }
 
+    public File getImageFile() {
+        return image;
+    }
+
+    public FileInputStream getImageFileStream() throws FileNotFoundException {
+        return new FileInputStream(this.image);
+    }
+
+    public void setImage(File image) {
+
+        this.image = image;
+    }
+
+    public int getSpecialityCode() {
+        return specialityCode;
+    }
+
+    public void setSpecialityCode(int specialityCode) {
+        this.specialityCode = specialityCode;
+    }
+
     public Person(){
 
     }
@@ -74,5 +101,4 @@ public class Person {
     public String returnData(String name){
         return this.name;
     }
-
 }

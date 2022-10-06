@@ -45,7 +45,7 @@ public class FirstViewController {
     private Pattern pattern;
     private Matcher matcher;
 
-    private final String[] specialityName = {
+    /*private final String[] specialityName = {
             "Автоматизация технологических процессов и производств (по отраслям)",
             "Земельно-имущественные отношения",
             "Инфокоммуникационные сети и системы связи",
@@ -73,10 +73,11 @@ public class FirstViewController {
             "Электронные приборы и устройства",
             "Электроснабжение (по отраслям)",
             "Другое..."
-    };
+    };*/
 
     public void initialize(){
-        speciality.getItems().addAll(specialityName);
+        speciality.getItems().addAll(DataBaseConnect.getSpecializationData());
+
     }
 
     public void nextScreen(ActionEvent actionEvent) throws IOException {
@@ -99,8 +100,14 @@ public class FirstViewController {
         MainController.person.setMailAddress(mailAddress.getText());
         MainController.person.setGroupNumber(groupNumber.getText());
         MainController.person.setSpeciality(speciality.getValue());
+        //В методе описать забор значения из таблицы в БД по выбранному тексту в боксе
+        //MainController.person.setSpecialityCode(specialityCodeGenerator());
+    }
 
-        DataBaseConnect.addData(MainController.person);
+    private int specialityCodeGenerator(){
+        int code = 1;
+
+        return code;
     }
 
     private boolean checkInput() {

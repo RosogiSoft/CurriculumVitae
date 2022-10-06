@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="500.0" spacing="20.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.curriculumvitae.ThirdViewController">
+   <children>
+      <Label prefHeight="46.0" prefWidth="500.0" text="Отметьте компетенции, которыми вы обладаете:" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="Arial" size="18.0" />
+         </font>
+         <VBox.margin>
+            <Insets left="10.0" right="10.0" />
+         </VBox.margin>
+      </Label>
+      <HBox prefHeight="60.0" prefWidth="500.0">
+         <children>
+            <CheckBox fx:id="checkBox1" alignment="CENTER" mnemonicParsing="false" prefHeight="60.0" prefWidth="177.0" text="Составление схем распределения оптических волокон" wrapText="true">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </CheckBox>
+            <CheckBox fx:id="checkBox2" mnemonicParsing="false" prefHeight="60.0" prefWidth="112.0" text="Знакомство с паспортом кабеля " wrapText="true" />
+            <CheckBox fx:id="checkBox3" mnemonicParsing="false" prefHeight="60.0" prefWidth="210.0" text="Навыки для работы с инструментами применяемых при разделке ОК и сварке ОВ" wrapText="true">
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </CheckBox>
+         </children>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </HBox>
+      <HBox prefHeight="60.0" prefWidth="500.0">
+         <children>
+            <CheckBox fx:id="checkBox4" mnemonicParsing="false" prefHeight="60.0" prefWidth="177.0" text="Разделка оптических кабелей различных конструкций" wrapText="true">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </CheckBox>
+            <CheckBox fx:id="checkBox5" mnemonicParsing="false" prefHeight="60.0" prefWidth="112.0" text="Сварка оптических волокон" wrapText="true" />
+            <CheckBox fx:id="checkBox6" mnemonicParsing="false" prefHeight="60.0" prefWidth="210.0" text="Монтаж различных оптических кроссов" wrapText="true">
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </CheckBox>
+         </children>
+      </HBox>
+      <HBox prefHeight="60.0" prefWidth="500.0">
+         <children>
+            <CheckBox fx:id="checkBox7" mnemonicParsing="false" prefHeight="60.0" prefWidth="177.0" text="Заполнение паспорта монтажа" wrapText="true">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </CheckBox>
+            <CheckBox fx:id="checkBox8" mnemonicParsing="false" prefHeight="60.0" prefWidth="112.0" text="Монтаж оптической муфты" wrapText="true" />
+            <CheckBox fx:id="checkBox9" mnemonicParsing="false" prefHeight="60.0" prefWidth="210.0" text="Опыт работы с различными измерительными инструментами" wrapText="true">
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </CheckBox>
+         </children>
+      </HBox>
+      <HBox prefHeight="60.0" prefWidth="500.0">
+         <children>
+            <CheckBox fx:id="checkBox10" mnemonicParsing="false" prefHeight="60.0" prefWidth="177.0" text="Формирование и укладка кабельных трасс в сетчатых лотках" wrapText="true">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </CheckBox>
+            <CheckBox fx:id="checkBox11" mnemonicParsing="false" prefHeight="60.0" prefWidth="112.0" text="Маркировка кабеля" wrapText="true" />
+            <CheckBox fx:id="checkBox12" mnemonicParsing="false" prefHeight="60.0" prefWidth="210.0" text="Монтаж модульных патч-панелей " wrapText="true">
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </CheckBox>
+         </children>
+      </HBox>
+      <HBox prefHeight="60.0" prefWidth="500.0">
+         <children>
+            <CheckBox fx:id="checkBox13" mnemonicParsing="false" prefHeight="60.0" prefWidth="177.0" text="Пусто" wrapText="true">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </CheckBox>
+            <CheckBox fx:id="checkBox14" mnemonicParsing="false" prefHeight="60.0" prefWidth="112.0" text="Пусто" wrapText="true" />
+            <CheckBox fx:id="checkBox15" mnemonicParsing="false" prefHeight="60.0" prefWidth="210.0" text="Пусто" wrapText="true">
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </CheckBox>
+         </children>
+      </HBox>
+      <Button mnemonicParsing="false" text="Дальше">
+         <VBox.margin>
+            <Insets bottom="100.0" left="400.0" />
+         </VBox.margin>
+      </Button>
+   </children>
+</VBox>
