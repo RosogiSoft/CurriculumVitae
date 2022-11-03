@@ -121,6 +121,7 @@ public class FirstViewController {
 
     private boolean checkName(){
         return !name.getText().isEmpty();
+        //([А-ЯЁ][а-яё]+[\-\s]?){3,} - regex for Names in case we need them
     }
     
     private boolean checkDateOfBirth(){
@@ -129,10 +130,8 @@ public class FirstViewController {
         matcher = pattern.matcher(dateOfBirth.getText());
 
         if (!matcher.matches()){
-            System.out.println("error in DoB");
-
             errorDate.setVisible(true);
-            errorDate.setText("Неправильно введена дата рождения");
+            errorDate.setText("!");
             return false;
         }
         errorDate.setVisible(false);
@@ -146,9 +145,8 @@ public class FirstViewController {
         matcher = pattern.matcher(phoneNumber.getText());
 
         if (!matcher.matches()){
-            System.out.println("error in PN");
             errorNumber.setVisible(true);
-            errorNumber.setText("Неправильно введена дата рождения");
+            errorNumber.setText("!");
             return false;
         }
         errorNumber.setVisible(false);
@@ -161,9 +159,8 @@ public class FirstViewController {
         matcher = pattern.matcher(mailAddress.getText());
 
         if (!matcher.matches()){
-            System.out.println("error in MA");
             errorMail.setVisible(true);
-            errorMail.setText("Неправильно введена дата рождения");
+            errorMail.setText("!");
             return false;
         }
         errorMail.setVisible(false);
@@ -176,9 +173,8 @@ public class FirstViewController {
         matcher = pattern.matcher(groupNumber.getText());
 
         if (!matcher.matches()){
-            System.out.println("error in GN");
             errorGroup.setVisible(true);
-            errorGroup.setText("Неправильно введена дата рождения");
+            errorGroup.setText("!");
             return false;
         }
         errorGroup.setVisible(false);

@@ -1,0 +1,60 @@
+/*
+TODO:
+1. Поправить импорт шрифта т.к. правильные отображение только для английского языка
+(скорее всего внутренний шрифт не поддерживает русский)
+
+Цвет задника: #081655
+Цвет фурниторы: #c6e9fc
+Цвет ошибки: #ea0900
+ */
+/*@font-face{
+    src: url("/Fonts/FuturaBookC.ttf");
+
+}*/
+
+.text{
+    -fx-font-family: "Futura";
+    -fx-text-fill: #081655;
+}
+
+.button{
+    -fx-background-radius: 15px;
+    -fx-background-color: #081655;
+    -fx-font-family: "Futura";
+    -fx-text-fill: #FFFFFF;
+}
+
+.field{
+    -fx-background-radius: 10px;
+    -fx-background-color: #c6e9fc;
+    -fx-font-family: "Futura";
+    -fx-border-width: 1px;
+    -fx-border-color: #081655;
+    -fx-border-radius: 15px;
+    -fx-text-fill: #081655;
+}
+
+.error-field{
+    -fx-text-fill: #ea0900;
+    -fx-font-size: 25px;
+    -fx-font-family: "Futura";
+}
+
+.choice-box{
+    -fx-background-color: #c6e9fc;
+    -fx-background-radius: 10px;
+    -fx-font-family: "Futura";
+    -fx-border-width: 1px;
+    -fx-border-radius: 15px;
+    -fx-border-color: #081655;
+    -fx-text-fill: #081655;
+}
+
+.label_text{
+    -fx-font-family: "Futura";
+    -fx-text-fill: #081655;
+}
+
+.background_color{
+    -fx-background-color: #c6e9fc;
+}
