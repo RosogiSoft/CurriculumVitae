@@ -74,4 +74,14 @@ public class DataBaseConnect {
 
         return names;
     }
+
+    public static List<String> getSpecializationCheckBox(){
+        List<String> data = null;
+        String query = "";
+
+
+        return data;
+    }
+
+
 }

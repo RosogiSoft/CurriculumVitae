@@ -1,8 +1,10 @@
 package com.example.curriculumvitae;
 
+import com.example.curriculumvitae.databaseModel.DataBaseConnect;
 import javafx.scene.control.CheckBox;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ThirdViewController {
 
@@ -43,6 +45,18 @@ public class ThirdViewController {
         checkBoxes.add(checkBox13);
         checkBoxes.add(checkBox14);
         checkBoxes.add(checkBox15);
+    }
+
+    private void setText(){
+        List<String> array = DataBaseConnect.getSpecializationCheckBox();
+        for (int i = 0; i < array.size(); i++){
+            if (array.get(i) != null){
+                checkBoxes.get(i).setText(array.get(i));
+            }
+            else {
+                checkBoxes.get(i).setVisible(false);
+            }
+        }
     }
 
 
