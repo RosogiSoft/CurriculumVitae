@@ -13,6 +13,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -45,9 +46,40 @@ public class FirstViewController {
     private Pattern pattern;
     private Matcher matcher;
 
-    public void initialize(){
-        speciality.getItems().addAll(DataBaseConnect.getSpecializationData());
+    /*private final String[] specialityName = {
+            "Автоматизация технологических процессов и производств (по отраслям)",
+            "Земельно-имущественные отношения",
+            "Инфокоммуникационные сети и системы связи",
+            "Информационная безопасность телекоммуникационных систем",
+            "Информационные системы (по отраслям)",
+            "Информационные системы и программирование",
+            "Компьютерные сети",
+            "Многоканальные телекоммуникационные системы",
+            "Монтаж, техническое обслуживание и ремонт электронных приборов и устройств",
+            "Монтажник радиоэлектронной аппаратуры и приборов",
+            "Обеспечение информационной безопасности телекоммуникационных систем",
+            "Оператор нефтепереработки",
+            "Организация и технология защиты информации",
+            "Оснащение средствами автоматизации технологических процессов и производств (по отраслям)",
+            "Почтовая связь",
+            "Программирование в компьютерных системах",
+            "Радиосвязь, радиовещание и телевидение",
+            "Сетевое и системное администрирование",
+            "Сети связи и системы коммутации",
+            "Системы и средства диспетчерского управления",
+            "Средства связи с подвижными объектами",
+            "Техническое обслуживание и ремонт автомобильного транспорта",
+            "Техническое обслуживание и ремонт радиоэлектронной техники (по отраслям)",
+            "Экономика и бухгалтерский учет (по отраслям)",
+            "Электронные приборы и устройства",
+            "Электроснабжение (по отраслям)",
+            "Другое..."
+    };*/
 
+    private final ArrayList<String> specData = DataBaseConnect.getSpecializationData();
+
+    public void initialize(){
+        speciality.getItems().addAll(specData);
     }
 
     public void nextScreen(ActionEvent actionEvent) throws IOException {
@@ -72,6 +104,14 @@ public class FirstViewController {
         MainController.person.setSpeciality(speciality.getValue());
         //В методе описать забор значения из таблицы в БД по выбранному тексту в боксе
         //MainController.person.setSpecialityCode(specialityCodeGenerator());
+        /*for (String spec : speciality.getItems()){
+            switch (spec){
+                case "Инфокоммуникационные сети и системы связи":
+                    bundle.add("хуй");
+                    bundle.add("хуй");
+                    break;
+            }
+        }*/
     }
 
     private int specialityCodeGenerator(){
@@ -81,7 +121,7 @@ public class FirstViewController {
     }
 
     private boolean checkInput() {
-        if (!checkName() || !checkDateOfBirth() || !checkPhoneNumber()
+        if (!checkName()|| !checkDateOfBirth() || !checkPhoneNumber()
                 || !checkMailAddress() || !checkPhoneNumber() || !checkGroupNumber() || !checkSpeciality()){
             return false;
         }
@@ -96,7 +136,10 @@ public class FirstViewController {
     
     private boolean checkDateOfBirth(){
         String regex = "(0?[1-9]|[12][0-9]|3[01])([\\.\\\\\\/-])(0?[1-9]|1[012])\\2(((19|20)\\d\\d)|(\\d\\d))";
-        if (!regexCheck(regex, dateOfBirth.getText())){
+        pattern = Pattern.compile(regex);
+        matcher = pattern.matcher(dateOfBirth.getText());
+
+        if (!matcher.matches()){
             errorDate.setVisible(true);
             errorDate.setText("!");
             return false;
@@ -108,7 +151,10 @@ public class FirstViewController {
     private boolean checkPhoneNumber(){
 
         String regex = "^((8|\\+7)[\\- ]?)?(\\(?\\d{3}\\)?[\\- ]?)?[\\d\\- ]{7,10}$";
-        if (regexCheck(regex, phoneNumber.getText())){
+        pattern = Pattern.compile(regex);
+        matcher = pattern.matcher(phoneNumber.getText());
+
+        if (!matcher.matches()){
             errorNumber.setVisible(true);
             errorNumber.setText("!");
             return false;
@@ -119,7 +165,10 @@ public class FirstViewController {
 
     private boolean checkMailAddress()  {
         String regex = "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$";
-        if (regexCheck(regex, mailAddress.getText())){
+        pattern = Pattern.compile(regex);
+        matcher = pattern.matcher(mailAddress.getText());
+
+        if (!matcher.matches()){
             errorMail.setVisible(true);
             errorMail.setText("!");
             return false;
@@ -130,7 +179,10 @@ public class FirstViewController {
 
     private boolean checkGroupNumber()   {
         String regex = "[1-5]\\-[А-я][А-я]?[А-я]?[А-я]?[А-я][1-9]?[0-9]\\-?[1-9]?[0-9]";
-        if (!regexCheck(regex, groupNumber.getText())){
+        pattern = Pattern.compile(regex);
+        matcher = pattern.matcher(groupNumber.getText());
+
+        if (!matcher.matches()){
             errorGroup.setVisible(true);
             errorGroup.setText("!");
             return false;
@@ -139,18 +191,7 @@ public class FirstViewController {
         return true;
     }
 
-    private  boolean regexCheck(String regex, String input){
-        pattern = Pattern.compile(regex);
-        matcher = pattern.matcher(input);
-        if (!matcher.matches()){
-            return false;
-        }
-        return true;
-    }
-
     private boolean checkSpeciality(){
         return !speciality.getValue().isEmpty();
     }
-
-            
 }

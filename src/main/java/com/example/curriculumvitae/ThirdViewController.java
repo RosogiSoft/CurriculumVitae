@@ -24,11 +24,12 @@ public class ThirdViewController {
     public CheckBox checkBox14;
     public CheckBox checkBox15;
     ArrayList<CheckBox> checkBoxes;
-    public void initialize(){
-        setCheckBoxArrayList();
+
+    public void initialize() {
+        setText(setCheckBoxArrayList());
     }
 
-    private void setCheckBoxArrayList(){
+    private ArrayList<CheckBox> setCheckBoxArrayList() {
         checkBoxes = new ArrayList<>();
         checkBoxes.add(checkBox1);
         checkBoxes.add(checkBox2);
@@ -45,9 +46,24 @@ public class ThirdViewController {
         checkBoxes.add(checkBox13);
         checkBoxes.add(checkBox14);
         checkBoxes.add(checkBox15);
+        return checkBoxes;
     }
 
-    private void setText(){
+    private void setText(List<CheckBox> listCheckBox) {
+        ArrayList<String> array = DataBaseConnect.getSpecializationCheckBox();
+        int i = 0;
+        assert array != null;
+        for (String element : array) {
+            if (element != null) {
+                listCheckBox.get(i).setText(element);
+                i++;
+            } else {
+                listCheckBox.get(i).setVisible(false);
+            }
+        }
+    }
+
+    /*private void setText(){
         List<String> array = DataBaseConnect.getSpecializationCheckBox();
         for (int i = 0; i < array.size(); i++){
             if (array.get(i) != null){
@@ -56,10 +72,5 @@ public class ThirdViewController {
             else {
                 checkBoxes.get(i).setVisible(false);
             }
-        }
-    }
-
-
-
-
+        }*/
 }

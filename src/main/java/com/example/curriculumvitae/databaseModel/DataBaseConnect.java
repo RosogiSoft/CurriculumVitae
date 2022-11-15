@@ -9,7 +9,7 @@ import java.util.List;
 
 public class DataBaseConnect {
 
-    private static final String url = "jdbc:mysql://45.10.43.194:3306/resume_database";
+    private static final String url = "jdbc:mysql://45.10.43.194:3306/RESUME";
     private static final String user = "igorvasiltsev";
     private static final String password = "45034691";
 
@@ -20,16 +20,18 @@ public class DataBaseConnect {
 
     public static void addData(Person person){
         String sqlQ =
-                "INSERT INTO student(studentName, dateOfBirth, telephoneNumber, emailAdress, groupNumber,speciality)"
+                "INSERT INTO Student" +
+                        "(STUDENTNAME, DATEOFBIRTH, GROUPNUMBER, SPECIALTYCODE, " +
+                        "TELEPHONENUMBER, EMAILADDRESS)"
         + "VALUES (?, ?, ?, ?, ?, ?)";
         try(Connection conn = connect()) {
             PreparedStatement statementOne = conn.prepareStatement(sqlQ);
             statementOne.setString(1, person.getName());
             statementOne.setString(2, person.getDateOfBirth());
-            statementOne.setString(3, person.getPhoneNumber());
-            statementOne.setString(4, person.getMailAddress());
-            statementOne.setString(5, person.getGroupNumber());
-            statementOne.setString(6, person.getSpeciality());
+            statementOne.setString(3, person.getGroupNumber());
+            statementOne.setInt(4, person.getSpecialityCode());
+            statementOne.setString(5, person.getPhoneNumber());
+            statementOne.setString(6, person.getMailAddress());
             statementOne.addBatch();
             statementOne.executeBatch();
             //Test of image load in database
@@ -39,7 +41,7 @@ public class DataBaseConnect {
     }
     public static void addDataPic(Person personPic){
         try(Connection conn = connect()){
-            String sqlQuery = "INSERT INTO students_image(image) VALUES (?)";
+            String sqlQuery = "INSERT INTO Student_Photo(PHOTO) VALUES (?)";
             PreparedStatement statementTwo = conn.prepareStatement(sqlQuery);
             statementTwo.setBinaryStream(1,personPic.getImageFileStream(),
                     (int) personPic.getImageFile().length());
@@ -52,36 +54,32 @@ public class DataBaseConnect {
         }
     }
 
-    public static String[] getSpecializationData(){
-        ArrayList<String> namesArrayList = new ArrayList<String>();
-        String[] names;
-        String sqlQuery = "SELECT speciality_name FROM resume_database.speciality_names";
+    public static ArrayList<String> getSpecializationData(){
+        ArrayList<String> namesArrayList = new ArrayList<>();
+        String sqlQuery = "SELECT SPECIALTYNAME FROM Specialty_Code";
         try(Connection conn = connect()){
             Statement statement = conn.createStatement();
             ResultSet rs = statement.executeQuery(sqlQuery);
             while (rs.next()){
-                namesArrayList.add(rs.getString("speciality_name"));
+                namesArrayList.add(rs.getString("SPECIALTYNAME"));
             }
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
-
-        names = new String[namesArrayList.size()];
-
-        for (int i = 0; i < namesArrayList.size();i++){
-            names[i] = namesArrayList.get(i);
-        }
-
-        return names;
+        return namesArrayList;
     }
 
-    public static List<String> getSpecializationCheckBox(){
-        List<String> data = null;
+    public static ArrayList<String> getSpecializationCheckBox(){
+        ArrayList<String> data = null;
         String query = "";
-
-
         return data;
     }
 
+    public int setSpecialityCodeFromDb(){
+        return 0;
+    }
 
+    public static void connClose() throws SQLException {
+        connect().close();
+    }
 }

@@ -48,7 +48,7 @@ public class SecondViewController {
         DataBaseConnect.addData(MainController.person);
         DataBaseConnect.addDataPic(MainController.person);
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("third_view.fxml")));
-        Stage stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
+        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
