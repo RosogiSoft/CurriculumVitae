@@ -57,7 +57,6 @@ public class ThirdViewController {
                 listCheckBox.get(i).setText(contString);
             } else {
                 listCheckBox.get(i).setVisible(false);
-                listCheckBox.get(i).setText("Хуйня");
             }
             i++;
         }
@@ -74,8 +73,8 @@ public class ThirdViewController {
             }
         }*/
 
-    public static void main(String[] args) {
-        ArrayList<String> checkBoxArrayString = DataBaseConnect.getSpecializationCheckBox(10);
+   /* public static void main(String[] args) {
+        ArrayList<String> checkBoxArrayString = DataBaseConnect.getSpecializationCheckBox(2);
         checkBoxArrayString.forEach(System.out::println);
-    }
+    }*/
 }

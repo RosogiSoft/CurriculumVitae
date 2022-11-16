@@ -80,12 +80,13 @@ public class DataBaseConnect {
         try (Connection conn = connect()) {
             Statement statement = conn.createStatement();
             ResultSet rs = statement.executeQuery(sqlQ);
-            int i = 1;
+            ResultSetMetaData rsmt = rs.getMetaData();
             while (rs.next()){
-                if (rs.wasNull()){
-                    data.add(null);
-                }else data.add(rs.getString(String.format("COMPETENCE%s", i)));
-                i++;
+                for (int i = 1; i < rsmt.getColumnCount(); i++) {
+                    if (rs.getString(String.format("COMPETENCE%s", i)) == null){
+                        data.add(null);
+                    } else data.add(rs.getString(String.format("COMPETENCE%s", i)));
+                }
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -108,4 +109,9 @@ public class DataBaseConnect {
         }
         return -1;
     }
+
+   /* public static void main(String[] args) {
+        ArrayList<String> s = DataBaseConnect.getSpecializationCheckBox(11);
+        s.forEach(System.out::println);
+    }*/
 }
