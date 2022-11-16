@@ -102,6 +102,7 @@ public class FirstViewController {
         MainController.person.setMailAddress(mailAddress.getText());
         MainController.person.setGroupNumber(groupNumber.getText());
         MainController.person.setSpeciality(speciality.getValue());
+        MainController.person.setSpecialityCode(DataBaseConnect.setSpecialityCodeFromDb(speciality.getValue()));
         //В методе описать забор значения из таблицы в БД по выбранному тексту в боксе
         //MainController.person.setSpecialityCode(specialityCodeGenerator());
         /*for (String spec : speciality.getItems()){
@@ -112,12 +113,6 @@ public class FirstViewController {
                     break;
             }
         }*/
-    }
-
-    private int specialityCodeGenerator(){
-        int code = 1;
-
-        return code;
     }
 
     private boolean checkInput() {

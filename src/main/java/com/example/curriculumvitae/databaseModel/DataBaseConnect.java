@@ -1,11 +1,10 @@
 package com.example.curriculumvitae.databaseModel;
 
-import com.example.curriculumvitae.Person;
+import com.example.curriculumvitae.helper.Person;
 
 import java.io.FileNotFoundException;
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.List;
 
 public class DataBaseConnect {
 
@@ -18,13 +17,13 @@ public class DataBaseConnect {
         return DriverManager.getConnection(url, user, password);
     }
 
-    public static void addData(Person person){
+    public static void addData(Person person) {
         String sqlQ =
                 "INSERT INTO Student" +
                         "(STUDENTNAME, DATEOFBIRTH, GROUPNUMBER, SPECIALTYCODE, " +
                         "TELEPHONENUMBER, EMAILADDRESS)"
-        + "VALUES (?, ?, ?, ?, ?, ?)";
-        try(Connection conn = connect()) {
+                        + "VALUES (?, ?, ?, ?, ?, ?)";
+        try (Connection conn = connect()) {
             PreparedStatement statementOne = conn.prepareStatement(sqlQ);
             statementOne.setString(1, person.getName());
             statementOne.setString(2, person.getDateOfBirth());
@@ -35,32 +34,33 @@ public class DataBaseConnect {
             statementOne.addBatch();
             statementOne.executeBatch();
             //Test of image load in database
-        } catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
-    public static void addDataPic(Person personPic){
-        try(Connection conn = connect()){
-            String sqlQuery = "INSERT INTO Student_Photo(PHOTO) VALUES (?)";
-            PreparedStatement statementTwo = conn.prepareStatement(sqlQuery);
-            statementTwo.setBinaryStream(1,personPic.getImageFileStream(),
+
+    public static void addDataPic(Person personPic) {
+        try (Connection conn = connect()) {
+            String sqlQ = "INSERT INTO Student_Photo(PHOTO) VALUES (?)";
+            PreparedStatement statementTwo = conn.prepareStatement(sqlQ);
+            statementTwo.setBinaryStream(1, personPic.getImageFileStream(),
                     (int) personPic.getImageFile().length());
             statementTwo.addBatch();
             statementTwo.executeBatch();
-        }catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
     }
 
-    public static ArrayList<String> getSpecializationData(){
+    public static ArrayList<String> getSpecializationData() {
         ArrayList<String> namesArrayList = new ArrayList<>();
-        String sqlQuery = "SELECT SPECIALTYNAME FROM Specialty_Code";
-        try(Connection conn = connect()){
+        String sqlQ = "SELECT SPECIALTYNAME FROM Specialty_Code";
+        try (Connection conn = connect()) {
             Statement statement = conn.createStatement();
-            ResultSet rs = statement.executeQuery(sqlQuery);
-            while (rs.next()){
+            ResultSet rs = statement.executeQuery(sqlQ);
+            while (rs.next()) {
                 namesArrayList.add(rs.getString("SPECIALTYNAME"));
             }
         } catch (SQLException e) {
@@ -69,17 +69,43 @@ public class DataBaseConnect {
         return namesArrayList;
     }
 
-    public static ArrayList<String> getSpecializationCheckBox(){
-        ArrayList<String> data = null;
-        String query = "";
+    public static ArrayList<String> getSpecializationCheckBox(int specCode) {
+        ArrayList<String> data = new ArrayList<>();
+        String sqlQ = String.format(
+                "SELECT COMPETENCE1, COMPETENCE2, COMPETENCE3, COMPETENCE4, COMPETENCE5, COMPETENCE6, " +
+                        "COMPETENCE7, COMPETENCE8, COMPETENCE9, COMPETENCE10, COMPETENCE11, COMPETENCE12, " +
+                        "COMPETENCE13, " +
+                        "COMPETENCE14, COMPETENCE15 FROM Decoding_Competency_Full WHERE SPECIALTYCODE = '%o'", specCode
+        );
+        try (Connection conn = connect()) {
+            Statement statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery(sqlQ);
+            int i = 1;
+            while (rs.next()){
+                if (rs.wasNull()){
+                    data.add(null);
+                }else data.add(rs.getString(String.format("COMPETENCE%s", i)));
+                i++;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return data;
     }
 
-    public int setSpecialityCodeFromDb(){
-        return 0;
-    }
-
-    public static void connClose() throws SQLException {
-        connect().close();
+    public static int setSpecialityCodeFromDb(String getSpecialityName) {
+        String sqlQ = String.format(
+                "SELECT SPECIALTYCODE FROM Specialty_Code WHERE SPECIALTYNAME= '%s'", getSpecialityName
+        );
+        try (Connection conn = connect()) {
+            Statement statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery(sqlQ);
+            if (rs.next()){
+                return rs.getInt("SPECIALTYCODE");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return -1;
     }
 }

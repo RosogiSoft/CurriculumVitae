@@ -26,7 +26,7 @@ public class ThirdViewController {
     ArrayList<CheckBox> checkBoxes;
 
     public void initialize() {
-        setText(setCheckBoxArrayList());
+        setTextBySpecCode(setCheckBoxArrayList(), MainController.person.getSpecialityCode());
     }
 
     private ArrayList<CheckBox> setCheckBoxArrayList() {
@@ -49,17 +49,17 @@ public class ThirdViewController {
         return checkBoxes;
     }
 
-    private void setText(List<CheckBox> listCheckBox) {
-        ArrayList<String> array = DataBaseConnect.getSpecializationCheckBox();
+    private void setTextBySpecCode(List<CheckBox> listCheckBox, int specCode) {
+        ArrayList<String> checkBoxArrayString = DataBaseConnect.getSpecializationCheckBox(specCode);
         int i = 0;
-        assert array != null;
-        for (String element : array) {
-            if (element != null) {
-                listCheckBox.get(i).setText(element);
-                i++;
+        for (String contString : checkBoxArrayString) {
+            if (contString != null) {
+                listCheckBox.get(i).setText(contString);
             } else {
                 listCheckBox.get(i).setVisible(false);
+                listCheckBox.get(i).setText("Хуйня");
             }
+            i++;
         }
     }
 
@@ -73,4 +73,9 @@ public class ThirdViewController {
                 checkBoxes.get(i).setVisible(false);
             }
         }*/
+
+    public static void main(String[] args) {
+        ArrayList<String> checkBoxArrayString = DataBaseConnect.getSpecializationCheckBox(10);
+        checkBoxArrayString.forEach(System.out::println);
+    }
 }

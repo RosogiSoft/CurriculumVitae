@@ -1,4 +1,4 @@
-package com.example.curriculumvitae;
+package com.example.curriculumvitae.helper;
 
 import java.io.File;
 import java.io.FileInputStream;
