@@ -2,6 +2,7 @@ module com.example.curriculumvitae {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.sql;
+    requires docx4j;
 
 
     exports com.example.curriculumvitae;
