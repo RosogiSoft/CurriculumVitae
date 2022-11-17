@@ -21,7 +21,7 @@
                   <Font name="Arial" size="13.0" />
                </font>
             </Label>
-            <TextField fx:id="name" prefHeight="47.0" prefWidth="390.0" promptText="Иванов Иван Иванович" styleClass="field" stylesheets="@style.css">
+            <TextField fx:id="name" prefHeight="47.0" prefWidth="390.0" promptText="Иванов Иван Иванович" styleClass="field" stylesheets="@style.css" text="Тест Тест Тест">
                <HBox.margin>
                   <Insets left="10.0" right="10.0" />
                </HBox.margin>
@@ -44,7 +44,7 @@
                   <Font name="Arial" size="13.0" />
                </font>
             </Label>
-            <TextField fx:id="dateOfBirth" prefHeight="26.0" prefWidth="136.0" promptText="01.01.1999" styleClass="field" stylesheets="@style.css">
+            <TextField fx:id="dateOfBirth" prefHeight="26.0" prefWidth="136.0" promptText="01.01.1999" styleClass="field" stylesheets="@style.css" text="01.01.1999">
                <HBox.margin>
                   <Insets left="10.0" right="10.0" />
                </HBox.margin>
@@ -68,7 +68,7 @@
                   <Font name="Arial" size="13.0" />
                </font>
             </Label>
-            <TextField fx:id="phoneNumber" prefHeight="25.0" prefWidth="158.0" promptText="+7 (999) 000-00-00" styleClass="field" stylesheets="@style.css">
+            <TextField fx:id="phoneNumber" prefHeight="25.0" prefWidth="158.0" promptText="+7 (999) 000-00-00" styleClass="field" stylesheets="@style.css" text="+71112223344">
                <HBox.margin>
                   <Insets left="10.0" right="10.0" />
                </HBox.margin>
@@ -92,7 +92,7 @@
                   <Font name="Arial" size="13.0" />
                </font>
             </Label>
-            <TextField fx:id="mailAddress" prefHeight="26.0" prefWidth="220.0" promptText=" example@example.com" styleClass="field" stylesheets="@style.css">
+            <TextField fx:id="mailAddress" prefHeight="26.0" prefWidth="220.0" promptText=" example@example.com" styleClass="field" stylesheets="@style.css" text="example@example.ru">
                <HBox.margin>
                   <Insets left="10.0" right="10.0" />
                </HBox.margin>
@@ -116,7 +116,7 @@
                   <Font name="Arial" size="13.0" />
                </font>
             </Label>
-            <TextField fx:id="groupNumber" prefHeight="26.0" prefWidth="136.0" promptText="3-РРТ11-5" styleClass="field" stylesheets="@style.css">
+            <TextField fx:id="groupNumber" prefHeight="26.0" prefWidth="136.0" promptText="3-РРТ11-5" styleClass="field" stylesheets="@style.css" text="1-РРТ11-1">
                <HBox.margin>
                   <Insets left="10.0" right="10.0" />
                </HBox.margin>

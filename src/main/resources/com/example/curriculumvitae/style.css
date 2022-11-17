@@ -2,6 +2,7 @@
 TODO:
 1. Поправить импорт шрифта т.к. правильные отображение только для английского языка
 (скорее всего внутренний шрифт не поддерживает русский)
+2. Сделать круглые armed штуки внутри checkbox
 
 Цвет задника: #081655
 Цвет фурниторы: #c6e9fc
@@ -57,4 +58,21 @@ TODO:
 
 .background_color{
     -fx-background-color: #c6e9fc;
+}
+/*
+Для внутреннего квадрата внутри чекбокса
+ */
+.check-box .box {
+    -fx-background-radius: 15px;
+    -fx-background-color: #c6e9fc;
+    -fx-border-width: 1px;
+    -fx-border-color: #081655;
+    -fx-border-radius: 10px;
+}
+
+.check-box:selected > .box > .mark,
+.check-box:indeterminate  > .box > .mark,
+.check-box:armed > .box > .mark{
+    -fx-background-radius: 8px;
+    -fx-background-color: #081655;
 }
