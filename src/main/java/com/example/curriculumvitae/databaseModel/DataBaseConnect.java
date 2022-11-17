@@ -75,17 +75,15 @@ public class DataBaseConnect {
                 "SELECT COMPETENCE1, COMPETENCE2, COMPETENCE3, COMPETENCE4, COMPETENCE5, COMPETENCE6, " +
                         "COMPETENCE7, COMPETENCE8, COMPETENCE9, COMPETENCE10, COMPETENCE11, COMPETENCE12, " +
                         "COMPETENCE13, " +
-                        "COMPETENCE14, COMPETENCE15 FROM Decoding_Competency_Full WHERE SPECIALTYCODE = '%o'", specCode
+                        "COMPETENCE14, COMPETENCE15 FROM Decoding_Competency_Full WHERE SPECIALTYCODE = %d", specCode
         );
         try (Connection conn = connect()) {
             Statement statement = conn.createStatement();
             ResultSet rs = statement.executeQuery(sqlQ);
-            ResultSetMetaData rsmt = rs.getMetaData();
+            ResultSetMetaData rsmd = rs.getMetaData();
             while (rs.next()){
-                for (int i = 1; i < rsmt.getColumnCount(); i++) {
-                    if (rs.getString(String.format("COMPETENCE%s", i)) == null){
-                        data.add(null);
-                    } else data.add(rs.getString(String.format("COMPETENCE%s", i)));
+                for (int i = 1; i < rsmd.getColumnCount() + 1; i++) {
+                    data.add(rs.getString(String.format("COMPETENCE%s", i)));
                 }
             }
         } catch (SQLException e) {
@@ -110,7 +108,8 @@ public class DataBaseConnect {
         return -1;
     }
 
-   /* public static void main(String[] args) {
+    /*
+    public static void main(String[] args) {
         ArrayList<String> s = DataBaseConnect.getSpecializationCheckBox(11);
         s.forEach(System.out::println);
     }*/

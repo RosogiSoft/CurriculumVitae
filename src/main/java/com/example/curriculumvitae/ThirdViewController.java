@@ -72,9 +72,4 @@ public class ThirdViewController {
                 checkBoxes.get(i).setVisible(false);
             }
         }*/
-
-   /* public static void main(String[] args) {
-        ArrayList<String> checkBoxArrayString = DataBaseConnect.getSpecializationCheckBox(2);
-        checkBoxArrayString.forEach(System.out::println);
-    }*/
 }
