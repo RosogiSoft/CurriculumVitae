@@ -78,16 +78,16 @@ public class FirstViewController {
 
     private final ArrayList<String> specData = DataBaseConnect.getSpecializationData();
 
-    public void initialize(){
+    public void initialize() {
         speciality.getItems().addAll(specData);
     }
 
     public void nextScreen(ActionEvent actionEvent) throws IOException {
 
-        if (checkInput()){
+        if (checkInput()) {
             writeData();
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("second_view.fxml")));
-            Stage stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
+            Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
@@ -95,7 +95,7 @@ public class FirstViewController {
 
     }
 
-    private void writeData(){
+    private void writeData() {
         MainController.person.setName(name.getText());
         MainController.person.setDateOfBirth(dateOfBirth.getText());
         MainController.person.setPhoneNumber(phoneNumber.getText());
@@ -116,25 +116,25 @@ public class FirstViewController {
     }
 
     private boolean checkInput() {
-        if (!checkName()|| !checkDateOfBirth() || !checkPhoneNumber()
-                || !checkMailAddress() || !checkPhoneNumber() || !checkGroupNumber() || !checkSpeciality()){
+        if (!checkName() || !checkDateOfBirth() || !checkPhoneNumber()
+                || !checkMailAddress() || !checkPhoneNumber() || !checkGroupNumber() || !checkSpeciality()) {
             return false;
         }
         return true;
 
     }
 
-    private boolean checkName(){
+    private boolean checkName() {
         return !name.getText().isEmpty();
         //([А-ЯЁ][а-яё]+[\-\s]?){3,} - regex for Names in case we need them
     }
-    
-    private boolean checkDateOfBirth(){
+
+    private boolean checkDateOfBirth() {
         String regex = "(0?[1-9]|[12][0-9]|3[01])([\\.\\\\\\/-])(0?[1-9]|1[012])\\2(((19|20)\\d\\d)|(\\d\\d))";
         pattern = Pattern.compile(regex);
         matcher = pattern.matcher(dateOfBirth.getText());
 
-        if (!matcher.matches()){
+        if (!matcher.matches()) {
             errorDate.setVisible(true);
             errorDate.setText("!");
             return false;
@@ -143,13 +143,13 @@ public class FirstViewController {
         return true;
     }
 
-    private boolean checkPhoneNumber(){
+    private boolean checkPhoneNumber() {
 
         String regex = "^((8|\\+7)[\\- ]?)?(\\(?\\d{3}\\)?[\\- ]?)?[\\d\\- ]{7,10}$";
         pattern = Pattern.compile(regex);
         matcher = pattern.matcher(phoneNumber.getText());
 
-        if (!matcher.matches()){
+        if (!matcher.matches()) {
             errorNumber.setVisible(true);
             errorNumber.setText("!");
             return false;
@@ -158,12 +158,12 @@ public class FirstViewController {
         return true;
     }
 
-    private boolean checkMailAddress()  {
+    private boolean checkMailAddress() {
         String regex = "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$";
         pattern = Pattern.compile(regex);
         matcher = pattern.matcher(mailAddress.getText());
 
-        if (!matcher.matches()){
+        if (!matcher.matches()) {
             errorMail.setVisible(true);
             errorMail.setText("!");
             return false;
@@ -172,12 +172,12 @@ public class FirstViewController {
         return true;
     }
 
-    private boolean checkGroupNumber()   {
+    private boolean checkGroupNumber() {
         String regex = "[1-5]\\-[А-я][А-я]?[А-я]?[А-я]?[А-я][1-9]?[0-9]\\-?[1-9]?[0-9]";
         pattern = Pattern.compile(regex);
         matcher = pattern.matcher(groupNumber.getText());
 
-        if (!matcher.matches()){
+        if (!matcher.matches()) {
             errorGroup.setVisible(true);
             errorGroup.setText("!");
             return false;
@@ -186,7 +186,7 @@ public class FirstViewController {
         return true;
     }
 
-    private boolean checkSpeciality(){
+    private boolean checkSpeciality() {
         return !speciality.getValue().isEmpty();
     }
 }

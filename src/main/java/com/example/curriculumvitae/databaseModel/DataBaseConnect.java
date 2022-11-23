@@ -3,6 +3,8 @@ package com.example.curriculumvitae.databaseModel;
 import com.example.curriculumvitae.helper.Person;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -81,7 +83,7 @@ public class DataBaseConnect {
             Statement statement = conn.createStatement();
             ResultSet rs = statement.executeQuery(sqlQ);
             ResultSetMetaData rsmd = rs.getMetaData();
-            while (rs.next()){
+            while (rs.next()) {
                 for (int i = 1; i < rsmd.getColumnCount() + 1; i++) {
                     data.add(rs.getString(String.format("COMPETENCE%s", i)));
                 }
@@ -99,7 +101,7 @@ public class DataBaseConnect {
         try (Connection conn = connect()) {
             Statement statement = conn.createStatement();
             ResultSet rs = statement.executeQuery(sqlQ);
-            if (rs.next()){
+            if (rs.next()) {
                 return rs.getInt("SPECIALTYCODE");
             }
         } catch (SQLException e) {
@@ -108,9 +110,26 @@ public class DataBaseConnect {
         return -1;
     }
 
-    /*
+    public static byte[] getUserPicFromDataBase(int id) {
+        String sqlQ = String.format(
+                "SELECT PHOTO FROM Student_Photo WHERE id = %d", id
+        );
+        try (Connection conn = connect()) {
+            Statement statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery(sqlQ);
+            if (rs.next()) {
+                return rs.getBytes("PHOTO");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return new byte[0];
+    }
+
     public static void main(String[] args) {
-        ArrayList<String> s = DataBaseConnect.getSpecializationCheckBox(11);
-        s.forEach(System.out::println);
-    }*/
+        byte[] imageCa = getUserPicFromDataBase(1);
+        for (byte c : imageCa) {
+            System.out.println(c);
+        }
+    }
 }
