@@ -10,7 +10,7 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="500.0" spacing="8.0" styleClass="background_color" stylesheets="@style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.curriculumvitae.ThirdViewController">
    <children>
-      <Label prefHeight="46.0" prefWidth="500.0" styleClass="label_text" stylesheets="@style.css" text="Отметьте компетенции, которыми вы обладаете:" textAlignment="CENTER" wrapText="true">
+      <Label prefHeight="24.0" prefWidth="484.0" styleClass="label_text" stylesheets="@style.css" text="Отметьте компетенции, которыми вы обладаете:" textAlignment="CENTER" wrapText="true">
          <font>
             <Font name="Arial" size="18.0" />
          </font>
@@ -151,7 +151,7 @@
             <String fx:value="check-box" />
          </styleClass>
       </CheckBox>
-      <Button mnemonicParsing="false" stylesheets="@style.css" text="Дальше">
+      <Button mnemonicParsing="false" onAction="#nextButton" stylesheets="@style.css" text="Дальше">
          <VBox.margin>
             <Insets bottom="100.0" left="400.0" />
          </VBox.margin>

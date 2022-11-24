@@ -56,7 +56,7 @@ public class DataBaseConnect {
 
     public static ArrayList<String> getSpecializationData() {
         ArrayList<String> namesArrayList = new ArrayList<>();
-        String sqlQ = "SELECT SPECIALTYNAME FROM Specialty_Code";
+        String sqlQ = "SELECT SPECIALTYNAME FROM Specialty_Code ORDER  BY SPECIALTYNAME ASC";
         try (Connection conn = connect()) {
             Statement statement = conn.createStatement();
             ResultSet rs = statement.executeQuery(sqlQ);
