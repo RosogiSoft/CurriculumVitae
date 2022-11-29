@@ -3,8 +3,6 @@ package com.example.curriculumvitae.databaseModel;
 import com.example.curriculumvitae.helper.Person;
 
 import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -15,7 +13,7 @@ public class DataBaseConnect {
     private static final String password = "45034691";
 
 
-    public static Connection connect() throws SQLException {
+    private static Connection connect() throws SQLException {
         return DriverManager.getConnection(url, user, password);
     }
 
@@ -124,12 +122,5 @@ public class DataBaseConnect {
             e.printStackTrace();
         }
         return new byte[0];
-    }
-
-    public static void main(String[] args) {
-        byte[] imageCa = getUserPicFromDataBase(1);
-        for (byte c : imageCa) {
-            System.out.println(c);
-        }
     }
 }
