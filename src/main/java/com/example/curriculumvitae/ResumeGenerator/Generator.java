@@ -2,6 +2,7 @@ package com.example.curriculumvitae.ResumeGenerator;
 
 import com.example.curriculumvitae.MainController;
 import com.example.curriculumvitae.databaseModel.DataBaseConnect;
+import javafx.scene.chart.PieChart;
 import org.docx4j.dml.wordprocessingDrawing.Inline;
 import org.docx4j.model.table.TblFactory;
 import org.docx4j.openpackaging.packages.WordprocessingMLPackage;
@@ -10,7 +11,10 @@ import org.docx4j.openpackaging.parts.WordprocessingML.MainDocumentPart;
 import org.docx4j.wml.*;
 
 import java.io.File;
+import java.io.IOException;
 import java.math.BigInteger;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.BiFunction;
@@ -26,26 +30,54 @@ public class Generator {
     public List<Object> addElementsFirstCol(Inline image) {
         List<Object> array = new ArrayList<>();
         array.add(addImageToParagraph(image));
-        array.add(addTextToParagraph("Образование", 12*2, new BooleanDefaultTrue()));
-        array.add(addTextToParagraph("Дополнительное образование", 12*2, new BooleanDefaultTrue()));
-        array.add(addTextToParagraph("Профессиональные навыки", 12*2, new BooleanDefaultTrue()));
-        array.add(addTextToParagraph("Личные качества", 12*2, new BooleanDefaultTrue()));
-        array.add(addTextToParagraph("Дополнительная информация", 12*2, new BooleanDefaultTrue()));
+        array.add(addTextToParagraph("Образование", 12 * 2, new BooleanDefaultTrue()));
+        array.add(addTextToParagraph("Дополнительное образование", 12 * 2, new BooleanDefaultTrue()));
+        array.add(addTextToParagraph("Профессиональные навыки", 12 * 2, new BooleanDefaultTrue()));
+        array.add(addTextToParagraph("Личные качества", 12 * 2, new BooleanDefaultTrue()));
+        array.add(addTextToParagraph("Дополнительная информация", 12 * 2, new BooleanDefaultTrue()));
         return array;
     }
 
     public void initFile(int id) throws Exception {
-        WordprocessingMLPackage wordpackage = WordprocessingMLPackage.createPackage();
-        MainDocumentPart mainDocumentPart = wordpackage.getMainDocumentPart();
-        byte[] fileContent = DataBaseConnect.getUserPicFromDataBase(id);
-        BinaryPartAbstractImage imagePart = BinaryPartAbstractImage
-                .createImagePart(wordpackage, fileContent);
-        Inline inline = imagePart.createImageInline(
-                "Cock", "Cock", 1, 2, false, 2360
-        );
-        mainDocumentPart.getContent().add(setTable(wordpackage, inline));
+        WordprocessingMLPackage wordPackage = WordprocessingMLPackage.createPackage();
+        MainDocumentPart mainDocumentPart = wordPackage.getMainDocumentPart();
+        mainDocumentPart.getContent().add(
+                addImageToParagraph(
+                    simpleAddImageToP(
+                        wordPackage,Files.readAllBytes(Path.of("src/main/resources/com/example/curriculumvitae/pic/img.png")),
+                "Logo", "Logo", 1, 2, false, 1200)
+
+        ));
+        mainDocumentPart.getContent().add(setTable(wordPackage, simpleAddImageToP(
+                wordPackage, DataBaseConnect.getUserPicFromDataBase(id), "UserPhoto",
+                "UserPhoto", 3,4, false, 2360
+        )));
         File docxFile = new File(path);
-        wordpackage.save(docxFile);
+        wordPackage.save(docxFile);
+    }
+
+    private Inline simpleAddImageToP(WordprocessingMLPackage wordPackage,
+                                     byte[] fileContent,
+                                     String fileNameHint,
+                                     String altText,
+                                     int id1,
+                                     int id2,
+                                     boolean link,
+                                     int maxWidth) throws Exception {
+
+        BinaryPartAbstractImage imagePart = BinaryPartAbstractImage.createImagePart(wordPackage, fileContent);
+        return imagePart.createImageInline(fileNameHint, altText, id1, id2, link, maxWidth);
+    }
+
+    private Inline simpleAddImageToP(WordprocessingMLPackage wordPackage,
+                                     byte[] fileContent,
+                                     String fileNameHint,
+                                     String altText,
+                                     int id1,
+                                     int id2,
+                                     boolean link) throws Exception {
+        BinaryPartAbstractImage imagePart = BinaryPartAbstractImage.createImagePart(wordPackage, fileContent);
+        return imagePart.createImageInline(fileNameHint, altText, id1, id2, link);
     }
 
     private P addImageToParagraph(Inline inline) {
@@ -129,8 +161,8 @@ public class Generator {
         for (Object row : rows) {
             Tr tr = (Tr) row;
             List<Object> cells = tr.getContent();
-            for (int i = 0; i < cells.size(); i++){
-                if (i % 2 == 0){
+            for (int i = 0; i < cells.size(); i++) {
+                if (i % 2 == 0) {
                     Tc cell = (Tc) cells.get(i);
                     setCellWidth(cell, 100);
                     cell.getContent().add(tableItems.get(j));
@@ -139,13 +171,13 @@ public class Generator {
             }
         }
         j = 0;
-        for (Object row : rows){
+        for (Object row : rows) {
             Tr tr = (Tr) row;
             List<Object> cells = tr.getContent();
-            for (int i = 0; i < cells.size(); i++){
-                if (i % 2 != 0){
+            for (int i = 0; i < cells.size(); i++) {
+                if (i % 2 != 0) {
                     Tc cell = (Tc) cells.get(i);
-                    cell.getContent().add(addTextToParagraph(MainController.person.getName()));
+                    cell.getContent().add(addTextToParagraph("Cock"));
                     j++;
                 }
             }
