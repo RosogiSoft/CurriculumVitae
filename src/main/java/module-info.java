@@ -3,6 +3,7 @@ module com.example.curriculumvitae {
     requires javafx.fxml;
     requires java.sql;
     requires docx4j;
+    requires java.xml.bind;
 
 
     exports com.example.curriculumvitae;

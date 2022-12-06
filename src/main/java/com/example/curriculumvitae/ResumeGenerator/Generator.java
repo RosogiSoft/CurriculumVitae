@@ -1,8 +1,7 @@
 package com.example.curriculumvitae.ResumeGenerator;
 
-import com.example.curriculumvitae.MainController;
 import com.example.curriculumvitae.databaseModel.DataBaseConnect;
-import javafx.scene.chart.PieChart;
+import com.example.curriculumvitae.helper.ParagraphPreprocess;
 import org.docx4j.dml.wordprocessingDrawing.Inline;
 import org.docx4j.model.table.TblFactory;
 import org.docx4j.openpackaging.packages.WordprocessingMLPackage;
@@ -10,14 +9,15 @@ import org.docx4j.openpackaging.parts.WordprocessingML.BinaryPartAbstractImage;
 import org.docx4j.openpackaging.parts.WordprocessingML.MainDocumentPart;
 import org.docx4j.wml.*;
 
+import javax.xml.bind.JAXBElement;
 import java.io.File;
-import java.io.IOException;
 import java.math.BigInteger;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.BiFunction;
+
+import static com.example.curriculumvitae.helper.ParagraphPreprocess.addTextToParagraph;
 
 public class Generator {
 
@@ -27,9 +27,9 @@ public class Generator {
         this.path = path;
     }
 
-    public List<Object> addElementsFirstCol(Inline image) {
+    private List<Object> addElementsFirstCol(Inline image) {
         List<Object> array = new ArrayList<>();
-        array.add(addImageToParagraph(image, JcEnumeration.CENTER));
+        array.add(ParagraphPreprocess.addImageToParagraph(image, JcEnumeration.CENTER));
         array.add(addTextToParagraph("Образование", 12 * 2, new BooleanDefaultTrue(), JcEnumeration.RIGHT));
         array.add(addTextToParagraph("Дополнительное образование", 12 * 2, new BooleanDefaultTrue(), JcEnumeration.RIGHT));
         array.add(addTextToParagraph("Профессиональные навыки", 12 * 2, new BooleanDefaultTrue(), JcEnumeration.RIGHT));
@@ -38,11 +38,18 @@ public class Generator {
         return array;
     }
 
+    private List<String> setSimpleData() {
+        ArrayList<String> array = new ArrayList<>();
+        array.add("c");
+        array.add("f");
+        return array;
+    }
+
     public void initFile(int id) throws Exception {
         WordprocessingMLPackage wordPackage = WordprocessingMLPackage.createPackage();
         MainDocumentPart mainDocumentPart = wordPackage.getMainDocumentPart();
         mainDocumentPart.getContent().add(
-                addImageToParagraph(
+                ParagraphPreprocess.addImageToParagraph(
                         simpleAddImageToP(
                                 wordPackage, Files.readAllBytes(
                                         Path.of("src/main/resources/com/example/curriculumvitae/pic/shapka.png")),
@@ -79,85 +86,6 @@ public class Generator {
                                      boolean link) throws Exception {
         BinaryPartAbstractImage imagePart = BinaryPartAbstractImage.createImagePart(wordPackage, fileContent);
         return imagePart.createImageInline(fileNameHint, altText, id1, id2, link);
-    }
-
-    private P addImageToParagraph(Inline inline) {
-        ObjectFactory factory = new ObjectFactory();
-        P p = factory.createP();
-        R r = factory.createR();
-        p.getContent().add(r);
-        Drawing drawing = factory.createDrawing();
-        r.getContent().add(drawing);
-        drawing.getAnchorOrInline().add(inline);
-        return p;
-    }
-
-    private P addImageToParagraph(Inline inline, JcEnumeration alligment) {
-        ObjectFactory factory = new ObjectFactory();
-        P p = factory.createP();
-        R r = factory.createR();
-        PPr paragraphProperties = new PPr();
-        Jc justification = factory.createJc();
-        justification.setVal(alligment);
-        paragraphProperties.setJc(justification);
-        p.setPPr(paragraphProperties);
-        p.getContent().add(r);
-        Drawing drawing = factory.createDrawing();
-        r.getContent().add(drawing);
-        drawing.getAnchorOrInline().add(inline);
-        return p;
-    }
-
-    private P addTextToParagraph(String string, int size, BooleanDefaultTrue style, JcEnumeration alligment) {
-        ObjectFactory factory = new ObjectFactory();
-        P p = factory.createP();
-        R r = factory.createR();
-        Text text = factory.createText();
-        text.setValue(string);
-        RPr rPr = factory.createRPr();
-        HpsMeasure hpsMeasure = new HpsMeasure();
-        hpsMeasure.setVal(BigInteger.valueOf(size));
-        U u = new U();
-        PPr paragraphProperties = new PPr();
-        Jc justification = factory.createJc();
-        justification.setVal(alligment);
-        paragraphProperties.setJc(justification);
-        u.setVal(UnderlineEnumeration.SINGLE);
-        rPr.setU(u);
-        rPr.setSz(hpsMeasure);
-        rPr.setB(style);
-        r.setRPr(rPr);
-        r.getContent().add(text);
-        p.setPPr(paragraphProperties);
-        p.getContent().add(r);
-        return p;
-    }
-
-    private P addTextToParagraph(String string, int size) {
-        ObjectFactory factory = new ObjectFactory();
-        P p = factory.createP();
-        R r = factory.createR();
-        Text text = factory.createText();
-        text.setValue(string);
-        RPr rPr = new RPr();
-        HpsMeasure hpsMeasure = new HpsMeasure();
-        hpsMeasure.setVal(BigInteger.valueOf(size));
-        rPr.setSz(hpsMeasure);
-        r.setRPr(rPr);
-        r.getContent().add(text);
-        p.getContent().add(r);
-        return p;
-    }
-
-    private P addTextToParagraph(String string) {
-        ObjectFactory factory = new ObjectFactory();
-        P p = factory.createP();
-        R r = factory.createR();
-        Text text = factory.createText();
-        text.setValue(string);
-        r.getContent().add(text);
-        p.getContent().add(r);
-        return p;
     }
 
 
@@ -217,7 +145,7 @@ public class Generator {
         tableCell.setTcPr(tableCellProperties);
     }
 
-    private void setCellStyleSecondColl(Tc tableCell, int width){
+    private void setCellStyleSecondColl(Tc tableCell, int width) {
         TcPr tableCellProperties = new TcPr();
         TcPrInner.TcBorders tcBorders = new TcPrInner.TcBorders();
         CTBorder borderTop = new CTBorder();
@@ -248,6 +176,18 @@ public class Generator {
         tableCell.setTcPr(tableCellProperties);
     }
 
+    private P setList(List<String> list) {
+        ObjectFactory factory = new ObjectFactory();
+        P p = factory.createP();
+        R r = factory.createR();
+        Text text = factory.createText();
+        list.forEach(text::setValue);
+        JAXBElement<Text> textWrapped = factory.createRT(text);
+        r.getContent().add(textWrapped);
+        p.getContent().add(r);
+        return p;
+    }
+
     private Tbl setTable(WordprocessingMLPackage wordpackage, Inline image) {
         int writableWidth = wordpackage
                 .getDocumentModel()
@@ -256,6 +196,7 @@ public class Generator {
                 .getPageDimensions()
                 .getWritableWidthTwips();
         List<Object> tableItems = addElementsFirstCol(image);
+        List<Object> descriptionCells = new ArrayList<>();
         int columnNumber = 2;
         Tbl table = TblFactory.createTable(6, columnNumber, writableWidth / columnNumber);
         int j = 0;
@@ -272,17 +213,45 @@ public class Generator {
                 }
             }
         }
-        j = 0;
         for (Object row : rows) {
             Tr tr = (Tr) row;
             List<Object> cells = tr.getContent();
             for (int i = 0; i < cells.size(); i++) {
                 if (i % 2 != 0) {
                     Tc cell = (Tc) cells.get(i);
-                    setCellStyleSecondColl(cell, 7695);
-                    cell.getContent().add(addTextToParagraph("Cock"));
-                    j++;
+                    setCellStyleSecondColl(cell, 7145);
+                    descriptionCells.add(cell);
                 }
+            }
+        }
+        for (int i = 0; i < descriptionCells.size(); i++) {
+            Tc cell = null;
+            switch (i){
+                case 0:
+                    cell = (Tc) descriptionCells.get(i);
+                    cell.getContent().add(addTextToParagraph("Васильцев Игорь Игоревич",
+                            36, new BooleanDefaultTrue(), JcEnumeration.LEFT));
+                    break;
+                case 1:
+                    cell = (Tc) descriptionCells.get(i);
+                    cell.getContent().add(setList(setSimpleData()));
+                    break;
+
+                case 2:
+
+                    break;
+
+                case 3:
+
+                    break;
+
+                case 4:
+
+                    break;
+
+                case 5:
+
+                    break;
             }
         }
         return table;
@@ -290,8 +259,5 @@ public class Generator {
 
 
     public static void main(String[] args) throws Exception {
-        String filename = "example.docx";
-        Generator generator = new Generator("src/main/resources/com/example/curriculumvitae/wordExamples/" + filename);
-        generator.initFile(1);
     }
 }
