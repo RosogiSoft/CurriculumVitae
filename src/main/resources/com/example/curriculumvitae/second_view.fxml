@@ -8,9 +8,9 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox fillWidth="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="500.0" styleClass="background_color" stylesheets="@style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.curriculumvitae.SecondViewController">
+<VBox fillWidth="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="500.0" styleClass="background_color" stylesheets="@style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.curriculumvitae.SecondViewController">
    <children>
-      <ImageView fx:id="imageView" cache="true" fitHeight="469.0" fitWidth="452.0" onMouseDragged="#mouseDragged" onMousePressed="#mousePressed" onScroll="#scroll" pickOnBounds="true" smooth="false">
+      <ImageView fx:id="imageView" cache="true" fitHeight="469.0" fitWidth="452.0" onMouseDragged="#mouseDragged" onMousePressed="#mousePressed" onMouseReleased="#mouseReleased" onScroll="#scroll" pickOnBounds="true" smooth="false">
          <VBox.margin>
             <Insets bottom="10.0" left="20.0" right="20.0" top="20.0" />
          </VBox.margin>
