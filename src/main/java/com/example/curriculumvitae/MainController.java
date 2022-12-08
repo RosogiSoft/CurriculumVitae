@@ -1,7 +1,7 @@
 package com.example.curriculumvitae;
 
+import com.example.curriculumvitae.helper.Person;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -20,23 +20,23 @@ public class MainController {
     private Scene scene;
     private Parent root;
 
-    public void initialize(){
+    public void initialize() {
         person = new Person();
     }
 
     public void startButton(ActionEvent actionEvent) throws IOException {
-        connect();
+        connectToTheServer();
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("first_view.fxml")));
-        Stage stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
+        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
 
-    private void connect(){
+    private void connectToTheServer() {
         boolean statusOK = true;
 
-        if (!statusOK){
+        if (!statusOK) {
             errorLog.setText("Отсутсвует подключение к серверу!");
             errorLog.setVisible(true);
             return;

@@ -1,4 +1,4 @@
-package com.example.curriculumvitae;
+package com.example.curriculumvitae.helper;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -83,13 +83,13 @@ public class Person {
         this.specialityCode = specialityCode;
     }
 
-    public Person(){
+    public Person() {
 
     }
 
     //Реализовать метод "Выплевывания" значения в JSON/XML/etc. для записи в БД в отдельном классе
 
-    public void printData(){
+    public void printData() {
         System.out.println(this.name);
         System.out.println(this.dateOfBirth);
         System.out.println(this.phoneNumber);
@@ -98,7 +98,7 @@ public class Person {
         System.out.println(this.speciality);
     }
 
-    public String returnData(String name){
+    public String returnData(String name) {
         return this.name;
     }
 }

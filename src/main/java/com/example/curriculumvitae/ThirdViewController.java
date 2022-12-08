@@ -1,8 +1,19 @@
 package com.example.curriculumvitae;
 
+import com.example.curriculumvitae.ResumeGenerator.Generator;
+import com.example.curriculumvitae.databaseModel.DataBaseConnect;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 public class ThirdViewController {
 
@@ -23,12 +34,11 @@ public class ThirdViewController {
     public CheckBox checkBox15;
     ArrayList<CheckBox> checkBoxes;
 
-    public void initialize(){
-
-        setCheckBoxArrayList();
+    public void initialize() {
+        setTextBySpecCode(setCheckBoxArrayList(), MainController.person.getSpecialityCode());
     }
 
-    public void setCheckBoxArrayList(){
+    private ArrayList<CheckBox> setCheckBoxArrayList() {
         checkBoxes = new ArrayList<>();
         checkBoxes.add(checkBox1);
         checkBoxes.add(checkBox2);
@@ -45,21 +55,38 @@ public class ThirdViewController {
         checkBoxes.add(checkBox13);
         checkBoxes.add(checkBox14);
         checkBoxes.add(checkBox15);
+        return checkBoxes;
+    }
 
-        switch (MainController.person.getSpeciality()){
-            case "Инфокоммуникационные сети и системы связи":
-                for (CheckBox checkBox : checkBoxes){
-                    checkBox.setText("хуй");
-                }break;
-
-            case "Информационная безопасность телекоммуникационных систем":
-                for (CheckBox checkBox : checkBoxes){
-                    checkBox.setText("залупа");
-                }break;
+    private void setTextBySpecCode(List<CheckBox> listCheckBox, int specCode) {
+        ArrayList<String> checkBoxArrayString = DataBaseConnect.getSpecializationCheckBox(specCode);
+        int i = 0;
+        for (String contString : checkBoxArrayString) {
+            if (contString != null) {
+                listCheckBox.get(i).setText(contString);
+            } else {
+                listCheckBox.get(i).setVisible(false);
+            }
+            i++;
         }
     }
 
+    public void nextButton(ActionEvent actionEvent) throws Exception {
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("additionalInfo_view.fxml")));
+        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 
-
-
+    /*private void setText(){
+        List<String> array = DataBaseConnect.getSpecializationCheckBox();
+        for (int i = 0; i < array.size(); i++){
+            if (array.get(i) != null){
+                checkBoxes.get(i).setText(array.get(i));
+            }
+            else {
+                checkBoxes.get(i).setVisible(false);
+            }
+        }*/
 }
