@@ -75,9 +75,6 @@ public class ThirdViewController {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("additionalInfo_view.fxml")));
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
-        String filename = "example.docx";
-        Generator generator = new Generator("src/main/resources/com/example/curriculumvitae/wordExamples/" + filename);
-        generator.initFile(1);
         stage.setScene(scene);
         stage.show();
     }
