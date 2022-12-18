@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="javafx-preloader" name="CurriculumVitae">
+    <output-path>$PROJECT_DIR$/out/artifacts/CurriculumVitae</output-path>
+    <root id="archive" name="CurriculumVitae.jar">
+      <element id="archive" name="CurriculumVitae.jar">
+        <element id="module-output" name="CurriculumVitae" />
+      </element>
+    </root>
+  </artifact>
+</component>
