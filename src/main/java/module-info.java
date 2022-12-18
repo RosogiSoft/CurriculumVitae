@@ -5,7 +5,6 @@ module com.example.curriculumvitae {
     requires docx4j;
     requires java.xml.bind;
 
-
     exports com.example.curriculumvitae;
     opens com.example.curriculumvitae to javafx.fxml;
     exports com.example.curriculumvitae.helper;
