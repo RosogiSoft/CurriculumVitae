@@ -25,6 +25,7 @@ public class Person {
     private boolean[] competency = new boolean[15];
 
 
+
     public Person() {
 
     }
