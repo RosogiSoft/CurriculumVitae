@@ -6,21 +6,22 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
+import java.io.File;
+
 public class FinalController {
     public Label resumePathLabel;
 
     public void endApplication(ActionEvent actionEvent) throws Exception {
         WelcomeController.person.printData();
-        String filePath = System.getProperty("user.home")+"\\Desktop\\";
+        String filePath = System.getProperty("user.home") + File.separator + "Desktop";
         String filename = WelcomeController.person.getName() + ".docx";
-        Generator generator = new Generator(filePath + "/" + filename);
+        Generator generator = new Generator(filePath + File.separator + filename);
         generator.initFile(1);
-
         Stage stage = (Stage) resumePathLabel.getScene().getWindow();
         stage.close();
     }
 
-    private void setResumePathLabel(){
+    private void setResumePathLabel() {
         //тут можно написать обработку для отображения пути сохранения файлика
     }
 }

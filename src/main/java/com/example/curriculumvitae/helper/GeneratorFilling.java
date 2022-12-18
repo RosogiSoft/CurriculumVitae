@@ -25,9 +25,11 @@ public class GeneratorFilling {
         return mainInfoArr;
     }
 
-    /*public List<Object> educationInfo(){
+    public List<Object> educationInfo(){
         ArrayList<Object> educationArrayList = new ArrayList<>();
-        educationArrayList.add(ParagraphPreprocess.addTextToParagraph());
+        educationArrayList.add(ParagraphPreprocess.addTextToParagraph(
+                ""
+        ));
         return educationArrayList;
-    }*/
+    }
 }
