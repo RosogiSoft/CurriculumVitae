@@ -23,7 +23,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Objects;
 
-public class SecondViewController {
+public class AvatarController {
     /*
     TODO:
     1) Добавить в вью вывод ошибки (маленькое изображение по разрешению или слишком большое по весу)
@@ -165,10 +165,10 @@ public class SecondViewController {
     }
 
     public void nextButton(ActionEvent actionEvent) throws IOException {
-        MainController.person.setImage(selectedFile);
-        DataBaseConnect.addData(MainController.person);
-        DataBaseConnect.addDataPic(MainController.person);
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("third_view.fxml")));
+        WelcomeController.person.setImage(selectedFile);
+        DataBaseConnect.addData(WelcomeController.person);
+        DataBaseConnect.addDataPic(WelcomeController.person);
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("speciality_view.fxml")));
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);

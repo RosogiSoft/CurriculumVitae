@@ -1,6 +1,5 @@
 package com.example.curriculumvitae;
 
-import com.example.curriculumvitae.ResumeGenerator.Generator;
 import com.example.curriculumvitae.databaseModel.DataBaseConnect;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -10,12 +9,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
 import javafx.stage.Stage;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class ThirdViewController {
+public class SpecialityController {
 
     public CheckBox checkBox1;
     public CheckBox checkBox2;
@@ -35,7 +33,7 @@ public class ThirdViewController {
     ArrayList<CheckBox> checkBoxes;
 
     public void initialize() {
-        setTextBySpecCode(setCheckBoxArrayList(), MainController.person.getSpecialityCode());
+        setTextBySpecCode(setCheckBoxArrayList(), WelcomeController.person.getSpecialityCode());
     }
 
     private ArrayList<CheckBox> setCheckBoxArrayList() {
@@ -79,14 +77,4 @@ public class ThirdViewController {
         stage.show();
     }
 
-    /*private void setText(){
-        List<String> array = DataBaseConnect.getSpecializationCheckBox();
-        for (int i = 0; i < array.size(); i++){
-            if (array.get(i) != null){
-                checkBoxes.get(i).setText(array.get(i));
-            }
-            else {
-                checkBoxes.get(i).setVisible(false);
-            }
-        }*/
 }

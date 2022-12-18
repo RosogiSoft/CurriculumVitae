@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox cacheShape="false" centerShape="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pickOnBounds="false" prefHeight="600.0" prefWidth="500.0" scaleShape="false" spacing="8.0" styleClass="background_color" stylesheets="@style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.curriculumvitae.ThirdViewController">
+<VBox cacheShape="false" centerShape="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pickOnBounds="false" prefHeight="600.0" prefWidth="500.0" scaleShape="false" spacing="8.0" styleClass="background_color" stylesheets="@style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.curriculumvitae.SpecialityController">
    <children>
       <Label prefHeight="24.0" prefWidth="484.0" styleClass="label_text" stylesheets="@style.css" text="Отметьте компетенции, которыми вы обладаете:" textAlignment="CENTER" wrapText="true">
          <font>

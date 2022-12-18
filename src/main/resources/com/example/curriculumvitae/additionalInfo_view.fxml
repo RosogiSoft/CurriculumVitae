@@ -2,13 +2,15 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="500.0" spacing="8.0" styleClass="background_color" stylesheets="@style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.curriculumvitae.AditionalInfoController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="500.0" spacing="8.0" styleClass="background_color" stylesheets="@style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.curriculumvitae.AdditionalInfoController">
    <children>
       <Label prefHeight="52.0" prefWidth="470.0" styleClass="label_text" stylesheets="@style.css" text="Какую ещё информацию о себе вы хотите сообщить?" wrapText="true">
          <VBox.margin>
@@ -18,16 +20,56 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Label prefHeight="46.0" prefWidth="490.0" styleClass="label_text" stylesheets="@style.css" text="Перечилисте все свои дипломы, грамоты, курсы повышения квалификации, награды, ссылки на свой сайт\github\профиль в социальной сети" wrapText="true">
+      <Label prefHeight="34.0" prefWidth="470.0" styleClass="label_text" stylesheets="@style.css" text="Перечилисте все свои дипломы, грамоты и награды полученные за время обучения в колледже " wrapText="true">
          <VBox.margin>
             <Insets left="10.0" right="10.0" />
          </VBox.margin>
       </Label>
-      <TextArea fx:id="aditionalTextField" prefHeight="443.0" prefWidth="470.0" promptText="Призер международного чемпионата, победитель национального этапа в компетнции &quot;Ремонт автомобильной техники&quot;...">
+      <TextArea fx:id="additionalTextField" prefHeight="47.0" prefWidth="470.0" promptText="Призер международного чемпионата, победитель национального этапа в компетнции &quot;Ремонт автомобильной техники&quot;...">
          <VBox.margin>
             <Insets left="10.0" right="10.0" />
          </VBox.margin>
       </TextArea>
+      <Label prefHeight="12.0" prefWidth="470.0" styleClass="label_text" stylesheets="@style.css" text="Какой иностранный язык вы изучали?" wrapText="true">
+         <VBox.margin>
+            <Insets left="10.0" right="10.0" />
+         </VBox.margin>
+      </Label>
+      <ChoiceBox fx:id="foreignLanguage" prefHeight="27.0" prefWidth="482.0" stylesheets="@style.css">
+         <VBox.margin>
+            <Insets left="10.0" right="10.0" />
+         </VBox.margin>
+      </ChoiceBox>
+      <Label prefHeight="12.0" prefWidth="470.0" styleClass="label_text" stylesheets="@style.css" text="Если ли у вас водительское удостоверение?" wrapText="true">
+         <VBox.margin>
+            <Insets left="10.0" right="10.0" />
+         </VBox.margin>
+      </Label>
+      <ChoiceBox fx:id="driverLicense" prefHeight="27.0" prefWidth="482.0" stylesheets="@style.css">
+         <VBox.margin>
+            <Insets left="10.0" right="10.0" />
+         </VBox.margin>
+      </ChoiceBox>
+      <Label prefHeight="46.0" prefWidth="490.0" styleClass="label_text" stylesheets="@style.css" text="Есть ли у вас ещё какие-нибудь профессиональные навыки, о которых вы хотите расказать?" wrapText="true">
+         <VBox.margin>
+            <Insets left="10.0" right="10.0" />
+         </VBox.margin>
+      </Label>
+      <TextArea fx:id="additionalCompetencies" prefHeight="47.0" prefWidth="470.0" promptText="Уверенный пользователь ПК, владею пакетом приложений Office...">
+         <VBox.margin>
+            <Insets left="10.0" right="10.0" />
+         </VBox.margin>
+      </TextArea>
+      <Label prefHeight="13.0" prefWidth="470.0" styleClass="label_text" stylesheets="@style.css" text="(Опционально) Укажите ссылки на ваши социальные сети (ВКонтакте//HH/Github)" wrapText="true">
+         <VBox.margin>
+            <Insets left="10.0" right="10.0" />
+         </VBox.margin>
+      </Label>
+      <TextField fx:id="socialNetwork" promptText="\@example.com">
+         <VBox.margin>
+            <Insets left="10.0" right="10.0" />
+         </VBox.margin>
+      </TextField>
       <HBox prefHeight="30.0" prefWidth="490.0">
          <children>
             <Label prefHeight="18.0" prefWidth="424.0" />

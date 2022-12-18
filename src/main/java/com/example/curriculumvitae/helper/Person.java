@@ -14,6 +14,15 @@ public class Person {
     private File image;
     private int specialityCode;
 
+    private String additionalInfo;
+    private String foreignLanguage;
+    private String driverLicense;
+
+
+
+    private String additionalCompetencies;
+    private String socialNetwork;
+
     public String getName() {
         return name;
     }
@@ -83,6 +92,46 @@ public class Person {
         this.specialityCode = specialityCode;
     }
 
+    public String getAdditionalInfo() {
+        return additionalInfo;
+    }
+
+    public void setAdditionalInfo(String additionalInfo) {
+        this.additionalInfo = additionalInfo;
+    }
+
+    public String getForeignLanguage() {
+        return foreignLanguage;
+    }
+
+    public void setForeignLanguage(String foreignLanguage) {
+        this.foreignLanguage = foreignLanguage;
+    }
+
+    public String getDriverLicense() {
+        return driverLicense;
+    }
+
+    public void setDriverLicense(String driverLicense) {
+        this.driverLicense = driverLicense;
+    }
+
+    public String getAdditionalCompetencies() {
+        return additionalCompetencies;
+    }
+
+    public void setAdditionalCompetencies(String additionalCompetencies) {
+        this.additionalCompetencies = additionalCompetencies;
+    }
+
+    public String getSocialNetwork() {
+        return socialNetwork;
+    }
+
+    public void setSocialNetwork(String socialNetwork) {
+        this.socialNetwork = socialNetwork;
+    }
+
     public Person() {
 
     }
@@ -96,6 +145,12 @@ public class Person {
         System.out.println(this.mailAddress);
         System.out.println(this.groupNumber);
         System.out.println(this.speciality);
+        System.out.println(this.additionalInfo);
+        System.out.println(this.foreignLanguage);
+        System.out.println(this.driverLicense);
+        System.out.println(this.additionalCompetencies);
+        System.out.println(this.socialNetwork);
+
     }
 
     public String returnData(String name) {

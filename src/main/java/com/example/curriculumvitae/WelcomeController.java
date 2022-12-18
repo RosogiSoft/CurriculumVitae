@@ -12,7 +12,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Objects;
 
-public class MainController {
+public class WelcomeController {
 
     public static Person person;
     public Label errorLog;
@@ -26,7 +26,7 @@ public class MainController {
 
     public void startButton(ActionEvent actionEvent) throws IOException {
         connectToTheServer();
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("first_view.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("mainInfo_view.fxml")));
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
