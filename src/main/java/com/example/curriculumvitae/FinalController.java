@@ -11,9 +11,9 @@ public class FinalController {
 
     public void endApplication(ActionEvent actionEvent) throws Exception {
         WelcomeController.person.printData();
-
-        String filename = "example.docx";
-        Generator generator = new Generator("src/main/resources/com/example/curriculumvitae/wordExamples/" + filename);
+        String filePath = System.getProperty("user.home")+"\\Desktop\\";
+        String filename = WelcomeController.person.getName() + ".docx";
+        Generator generator = new Generator(filePath + "/" + filename);
         generator.initFile(1);
 
         Stage stage = (Stage) resumePathLabel.getScene().getWindow();

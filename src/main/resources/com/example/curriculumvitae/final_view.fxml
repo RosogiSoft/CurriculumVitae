@@ -7,7 +7,7 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="500.0" styleClass="background_color" stylesheets="@style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.curriculumvitae.FinalController">
    <children>
-      <Label fx:id="resumePathLabel" prefHeight="258.0" prefWidth="526.0" text="Спасибо за предоставленную информацию. Свое резюме вы можете найти в папке: ..." textAlignment="CENTER" wrapText="true" />
+      <Label fx:id="resumePathLabel" prefHeight="258.0" prefWidth="526.0" text="Спасибо за предоставленную информацию. Свое резюме вы можете найти на рабочем столе." textAlignment="CENTER" wrapText="true" />
       <HBox prefHeight="100.0" prefWidth="200.0">
          <children>
             <Label prefHeight="17.0" prefWidth="197.0" />

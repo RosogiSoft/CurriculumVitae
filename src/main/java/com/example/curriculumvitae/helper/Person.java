@@ -13,16 +13,34 @@ public class Person {
     private String speciality;
     private File image;
     private int specialityCode;
-
     private String additionalInfo;
     private String foreignLanguage;
     private String driverLicense;
-
-
-
     private String additionalCompetencies;
     private String socialNetwork;
 
+
+
+    public Person() {
+
+    }
+
+    public void printData() {
+        System.out.println(this.name);
+        System.out.println(this.dateOfBirth);
+        System.out.println(this.phoneNumber);
+        System.out.println(this.mailAddress);
+        System.out.println(this.groupNumber);
+        System.out.println(this.speciality);
+        System.out.println(this.additionalInfo);
+        System.out.println(this.foreignLanguage);
+        System.out.println(this.driverLicense);
+        System.out.println(this.additionalCompetencies);
+        System.out.println(this.socialNetwork);
+
+    }
+
+    //Down bellow only setters and getters of Person fields
     public String getName() {
         return name;
     }
@@ -132,28 +150,4 @@ public class Person {
         this.socialNetwork = socialNetwork;
     }
 
-    public Person() {
-
-    }
-
-    //Реализовать метод "Выплевывания" значения в JSON/XML/etc. для записи в БД в отдельном классе
-
-    public void printData() {
-        System.out.println(this.name);
-        System.out.println(this.dateOfBirth);
-        System.out.println(this.phoneNumber);
-        System.out.println(this.mailAddress);
-        System.out.println(this.groupNumber);
-        System.out.println(this.speciality);
-        System.out.println(this.additionalInfo);
-        System.out.println(this.foreignLanguage);
-        System.out.println(this.driverLicense);
-        System.out.println(this.additionalCompetencies);
-        System.out.println(this.socialNetwork);
-
-    }
-
-    public String returnData(String name) {
-        return this.name;
-    }
 }
