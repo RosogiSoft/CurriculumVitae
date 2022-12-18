@@ -18,7 +18,11 @@ public class Person {
     private String driverLicense;
     private String additionalCompetencies;
     private String socialNetwork;
-
+    private String establishment;
+    private String faculty;
+    private String formOfStudy;
+    private String yearOfEnding;
+    private boolean[] competency = new boolean[15];
 
 
     public Person() {
@@ -148,6 +152,45 @@ public class Person {
 
     public void setSocialNetwork(String socialNetwork) {
         this.socialNetwork = socialNetwork;
+    }
+
+    public String getEstablishment() {
+        return establishment;
+    }
+
+    public void setEstablishment(String establishment) {
+        this.establishment = establishment;
+    }
+
+    public String getFaculty() {
+        return faculty;
+    }
+
+    public void setFaculty(String faculty) {
+        this.faculty = faculty;
+    }
+
+    public String getFormOfStudy() {
+        return formOfStudy;
+    }
+
+    public void setFormOfStudy(String formOfStudy) {
+        this.formOfStudy = formOfStudy;
+    }
+
+    public String getYearOfEnding() {
+        return yearOfEnding;
+    }
+
+    public void setYearOfEnding(String yearOfEnding) {
+        this.yearOfEnding = yearOfEnding;
+    }
+
+    public boolean[] getCompetency() {
+        return competency;
+    }
+    public void setCompetency(boolean[] competency) {
+        this.competency = competency;
     }
 
 }
