@@ -1,5 +1,6 @@
 package com.example.curriculumvitae.ResumeGenerator;
 
+import com.example.curriculumvitae.WelcomeController;
 import com.example.curriculumvitae.databaseModel.DataBaseConnect;
 import com.example.curriculumvitae.helper.GeneratorFilling;
 import com.example.curriculumvitae.helper.ParagraphPreprocess;
@@ -61,7 +62,6 @@ public class Generator {
         wordPackage.save(docxFile);
     }
 
-
     private Tbl setTable(WordprocessingMLPackage wordPackage, Inline image) {
         int writableWidth = wordPackage
                 .getDocumentModel()
@@ -109,22 +109,31 @@ public class Generator {
                     break;
                 case 1:
                     cell = (Tc) descriptionCells.get(i);
-                    cell.getContent().add(ParagraphPreprocess.setList(setSimpleData()));
+                    for (int c = 0; c < generatorFilling.educationInfo().size(); c++) {
+                        cell.getContent().add(generatorFilling.educationInfo().get(c));
+                    }
                     break;
                 case 2:
-
                     break;
 
                 case 3:
-
+                    cell = (Tc) descriptionCells.get(i);
+                    cell.getContent().add(ParagraphPreprocess.addTextToParagraph(
+                            String.format("Дополнительные компетенции: %s",
+                                    WelcomeController.person.getAdditionalCompetencies()), 14 * 2));
                     break;
 
                 case 4:
-
+                    cell = (Tc) descriptionCells.get(i);
+                    for (int c = 0; c < generatorFilling.personalQualities().size(); c++) {
+                        cell.getContent().add(generatorFilling.personalQualities().get(c));
+                    }
                     break;
-
                 case 5:
-
+                    cell = (Tc) descriptionCells.get(i);
+                    for (int c = 0; c < generatorFilling.additionalInformation().size(); c++) {
+                        cell.getContent().add(generatorFilling.additionalInformation().get(c));
+                    }
                     break;
             }
         }

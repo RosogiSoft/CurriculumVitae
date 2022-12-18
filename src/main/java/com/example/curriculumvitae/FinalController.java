@@ -16,6 +16,8 @@ public class FinalController {
         String filePath = System.getProperty("user.home") + File.separator + "Desktop";
         String filename = WelcomeController.person.getName() + ".docx";
         Generator generator = new Generator(filePath + File.separator + filename);
+
+        //Attach photo by id in DataBase
         generator.initFile(1);
         Stage stage = (Stage) resumePathLabel.getScene().getWindow();
         stage.close();

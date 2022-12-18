@@ -12,25 +12,25 @@ import java.util.List;
 public class ParagraphPreprocess {
 
     public static Inline simpleAddImageToP(WordprocessingMLPackage wordPackage,
-                                     byte[] fileContent,
-                                     String fileNameHint,
-                                     String altText,
-                                     int id1,
-                                     int id2,
-                                     boolean link,
-                                     int maxWidth) throws Exception {
+                                           byte[] fileContent,
+                                           String fileNameHint,
+                                           String altText,
+                                           int id1,
+                                           int id2,
+                                           boolean link,
+                                           int maxWidth) throws Exception {
 
         BinaryPartAbstractImage imagePart = BinaryPartAbstractImage.createImagePart(wordPackage, fileContent);
         return imagePart.createImageInline(fileNameHint, altText, id1, id2, link, maxWidth);
     }
 
     public static Inline simpleAddImageToP(WordprocessingMLPackage wordPackage,
-                                     byte[] fileContent,
-                                     String fileNameHint,
-                                     String altText,
-                                     int id1,
-                                     int id2,
-                                     boolean link) throws Exception {
+                                           byte[] fileContent,
+                                           String fileNameHint,
+                                           String altText,
+                                           int id1,
+                                           int id2,
+                                           boolean link) throws Exception {
         BinaryPartAbstractImage imagePart = BinaryPartAbstractImage.createImagePart(wordPackage, fileContent);
         return imagePart.createImageInline(fileNameHint, altText, id1, id2, link);
     }
@@ -83,6 +83,27 @@ public class ParagraphPreprocess {
         r.setRPr(rPr);
         r.getContent().add(text);
         p.setPPr(paragraphProperties);
+        p.getContent().add(r);
+        return p;
+    }
+
+    public static P addTextToParagraphBold(String string, int size, BooleanDefaultTrue style, JcEnumeration alligment) {
+        ObjectFactory factory = new ObjectFactory();
+        P p = factory.createP();
+        R r = factory.createR();
+        Text text = factory.createText();
+        text.setValue(string);
+        RPr rPr = new RPr();
+        HpsMeasure hpsMeasure = new HpsMeasure();
+        PPr paragraphProperties = new PPr();
+        hpsMeasure.setVal(BigInteger.valueOf(size));
+        Jc justification = factory.createJc();
+        justification.setVal(alligment);
+        paragraphProperties.setJc(justification);
+        rPr.setSz(hpsMeasure);
+        rPr.setB(style);
+        r.setRPr(rPr);
+        r.getContent().add(text);
         p.getContent().add(r);
         return p;
     }
