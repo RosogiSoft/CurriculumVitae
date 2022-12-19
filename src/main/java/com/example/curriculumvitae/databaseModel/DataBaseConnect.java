@@ -33,7 +33,6 @@ public class DataBaseConnect {
             statementOne.setString(6, person.getMailAddress());
             statementOne.addBatch();
             statementOne.executeBatch();
-            //Test of image load in database
         } catch (SQLException e) {
             e.printStackTrace();
         }
