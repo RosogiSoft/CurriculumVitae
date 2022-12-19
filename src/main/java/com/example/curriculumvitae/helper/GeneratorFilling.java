@@ -1,6 +1,8 @@
 package com.example.curriculumvitae.helper;
 
 import com.example.curriculumvitae.WelcomeController;
+import com.topologi.diffx.Main;
+import org.docx4j.dml.wordprocessingDrawing.Inline;
 import org.docx4j.wml.BooleanDefaultTrue;
 import org.docx4j.wml.JcEnumeration;
 
@@ -11,9 +13,24 @@ import java.util.List;
 public class GeneratorFilling {
 
     private final int HEADING_SIZE = 22 * 2;
-    private final int MAIN_SIZE = 14 * 2;
+    private final int MAIN_SIZE = 12 * 2;
     private final int BIG_SIZE = 16 * 2;
 
+    public List<Object> addElementsFirstCol(Inline image) {
+        List<Object> array = new ArrayList<>();
+        array.add(ParagraphPreprocess.addImageToParagraph(image, JcEnumeration.CENTER));
+        array.add(ParagraphPreprocess.addTextToParagraph("Образование", MAIN_SIZE, new BooleanDefaultTrue(),
+                JcEnumeration.RIGHT));
+        array.add(ParagraphPreprocess.addTextToParagraph("Дополнительное образование", MAIN_SIZE, new BooleanDefaultTrue(),
+                JcEnumeration.RIGHT));
+        array.add(ParagraphPreprocess.addTextToParagraph("Профессиональные навыки", MAIN_SIZE, new BooleanDefaultTrue(),
+                JcEnumeration.RIGHT));
+        array.add(ParagraphPreprocess.addTextToParagraph("Личные качества", MAIN_SIZE, new BooleanDefaultTrue(),
+                JcEnumeration.RIGHT));
+        array.add(ParagraphPreprocess.addTextToParagraph("Дополнительная информация", MAIN_SIZE, new BooleanDefaultTrue(),
+                JcEnumeration.RIGHT));
+        return array;
+    }
     public List<Object> mainInfo() {
         ArrayList<Object> mainInfoArr = new ArrayList<>();
         mainInfoArr.add(ParagraphPreprocess.addTextToParagraph(WelcomeController.person.getName(),

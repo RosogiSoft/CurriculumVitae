@@ -26,23 +26,6 @@ public class Generator {
         this.path = path;
     }
 
-    private List<Object> addElementsFirstCol(Inline image) {
-        List<Object> array = new ArrayList<>();
-        array.add(ParagraphPreprocess.addImageToParagraph(image, JcEnumeration.CENTER));
-        array.add(ParagraphPreprocess.addTextToParagraph("Образование", 12 * 2, new BooleanDefaultTrue(), JcEnumeration.RIGHT));
-        array.add(ParagraphPreprocess.addTextToParagraph("Дополнительное образование", 12 * 2, new BooleanDefaultTrue(), JcEnumeration.RIGHT));
-        array.add(ParagraphPreprocess.addTextToParagraph("Профессиональные навыки", 12 * 2, new BooleanDefaultTrue(), JcEnumeration.RIGHT));
-        array.add(ParagraphPreprocess.addTextToParagraph("Личные качества", 12 * 2, new BooleanDefaultTrue(), JcEnumeration.RIGHT));
-        array.add(ParagraphPreprocess.addTextToParagraph("Дополнительная информация", 12 * 2, new BooleanDefaultTrue(), JcEnumeration.RIGHT));
-        return array;
-    }
-
-    private List<String> setSimpleData() {
-        ArrayList<String> array = new ArrayList<>();
-        array.add("c");
-        array.add("f");
-        return array;
-    }
 
     public void initFile(int id) throws Exception {
         WordprocessingMLPackage wordPackage = WordprocessingMLPackage.createPackage();
@@ -51,7 +34,7 @@ public class Generator {
                 ParagraphPreprocess.addImageToParagraph(
                         ParagraphPreprocess.simpleAddImageToP(
                                 wordPackage, Files.readAllBytes(
-                                        Path.of("src/main/resources/com/example/curriculumvitae/pic/shapka.png")
+                                        Path.of("shapka.png")
                                 ), "Logo", "Logo", 1, 2, false
                         )));
         mainDocumentPart.getContent().add(setTable(wordPackage, ParagraphPreprocess.simpleAddImageToP(
@@ -69,7 +52,7 @@ public class Generator {
                 .get(0)
                 .getPageDimensions()
                 .getWritableWidthTwips();
-        List<Object> tableItems = addElementsFirstCol(image);
+        List<Object> tableItems = generatorFilling.addElementsFirstCol(image);
         List<Object> descriptionCells = new ArrayList<>();
         int columnNumber = 2;
         Tbl table = TblFactory.createTable(6, columnNumber, writableWidth / columnNumber);

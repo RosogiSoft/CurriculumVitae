@@ -1,5 +1,8 @@
 module com.example.curriculumvitae {
+    requires java.base;
+    requires javafx.base;
     requires javafx.controls;
+    requires javafx.graphics;
     requires javafx.fxml;
     requires java.sql;
     requires docx4j;
