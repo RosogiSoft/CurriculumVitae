@@ -6,173 +6,188 @@
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox cacheShape="false" centerShape="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pickOnBounds="false" prefHeight="600.0" prefWidth="500.0" scaleShape="false" spacing="8.0" styleClass="background_color" stylesheets="@style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.curriculumvitae.SpecialityController">
-   <children>
-      <Label prefHeight="24.0" prefWidth="484.0" styleClass="label_text" stylesheets="@style.css" text="Отметьте компетенции, которыми вы обладаете:" textAlignment="CENTER" wrapText="true">
-         <font>
-            <Font name="Arial" size="18.0" />
-         </font>
-         <VBox.margin>
-            <Insets left="10.0" right="10.0" />
-         </VBox.margin>
-      </Label>
-      <ScrollPane cacheShape="false" centerShape="false" fitToWidth="true" focusTraversable="false" hbarPolicy="NEVER" pickOnBounds="false" prefHeight="533.0" prefWidth="490.0" scaleShape="false" snapToPixel="false" vbarPolicy="ALWAYS">
-         <content>
-            <VBox prefWidth="475.0" spacing="7.0" styleClass="scroll-pane" stylesheets="@style.css">
+<VBox cacheShape="false" centerShape="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pickOnBounds="false" prefHeight="1000.0" prefWidth="900.0" scaleShape="false" spacing="8.0" styleClass="background" stylesheets="@style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.curriculumvitae.SpecialityController">
+    <children>
+      <HBox prefHeight="135.0" prefWidth="890.0">
+         <children>
+            <Label prefWidth="50.0" />
+              <Label prefHeight="141.0" prefWidth="612.0" styleClass="header" stylesheets="@speciality_style.css" text="Отметьте компетенции, которыми вы обладаете:" wrapText="true">
+                  <font>
+                      <Font name="Vela Sans ExtraBold" size="40.0" />
+                  </font>
+              </Label>
+         </children>
+      </HBox>
+      <VBox prefHeight="857.0" prefWidth="890.0">
+         <children>
+            <HBox prefHeight="869.0" prefWidth="890.0">
                <children>
-                  <CheckBox fx:id="checkBox1" mnemonicParsing="false" prefWidth="465.0" snapToPixel="false" stylesheets="@style.css" wrapText="true" VBox.vgrow="NEVER">
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                     <styleClass>
-                        <String fx:value="box" />
-                        <String fx:value="check-box" />
-                        <String fx:value="mark" />
-                     </styleClass>
-                  </CheckBox>
-                  <CheckBox fx:id="checkBox2" mnemonicParsing="false" prefWidth="465.0" snapToPixel="false" stylesheets="@style.css" wrapText="true" VBox.vgrow="NEVER">
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                     <styleClass>
-                        <String fx:value="box" />
-                        <String fx:value="check-box" />
-                     </styleClass>
-                  </CheckBox>
-                  <CheckBox fx:id="checkBox3" mnemonicParsing="false" prefWidth="465.0" snapToPixel="false" stylesheets="@style.css" wrapText="true" VBox.vgrow="NEVER">
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                     <styleClass>
-                        <String fx:value="box" />
-                        <String fx:value="check-box" />
-                     </styleClass>
-                  </CheckBox>
-                  <CheckBox fx:id="checkBox4" mnemonicParsing="false" prefWidth="465.0" snapToPixel="false" stylesheets="@style.css" wrapText="true" VBox.vgrow="NEVER">
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                     <styleClass>
-                        <String fx:value="box" />
-                        <String fx:value="check-box" />
-                     </styleClass>
-                  </CheckBox>
-                  <CheckBox fx:id="checkBox5" mnemonicParsing="false" prefWidth="465.0" snapToPixel="false" stylesheets="@style.css" wrapText="true" VBox.vgrow="NEVER">
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                     <styleClass>
-                        <String fx:value="box" />
-                        <String fx:value="check-box" />
-                     </styleClass>
-                  </CheckBox>
-                  <CheckBox fx:id="checkBox6" mnemonicParsing="false" prefWidth="465.0" snapToPixel="false" stylesheets="@style.css" wrapText="true" VBox.vgrow="NEVER">
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                     <styleClass>
-                        <String fx:value="box" />
-                        <String fx:value="check-box" />
-                     </styleClass>
-                  </CheckBox>
-                  <CheckBox fx:id="checkBox7" mnemonicParsing="false" prefWidth="465.0" snapToPixel="false" stylesheets="@style.css" wrapText="true" VBox.vgrow="NEVER">
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                     <styleClass>
-                        <String fx:value="box" />
-                        <String fx:value="check-box" />
-                     </styleClass>
-                  </CheckBox>
-                  <CheckBox fx:id="checkBox8" mnemonicParsing="false" prefWidth="465.0" snapToPixel="false" stylesheets="@style.css" wrapText="true" VBox.vgrow="NEVER">
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                     <styleClass>
-                        <String fx:value="box" />
-                        <String fx:value="check-box" />
-                     </styleClass>
-                  </CheckBox>
-                  <CheckBox fx:id="checkBox9" mnemonicParsing="false" prefWidth="465.0" snapToPixel="false" stylesheets="@style.css" wrapText="true" VBox.vgrow="NEVER">
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                     <styleClass>
-                        <String fx:value="box" />
-                        <String fx:value="check-box" />
-                     </styleClass>
-                  </CheckBox>
-                  <CheckBox fx:id="checkBox10" mnemonicParsing="false" prefWidth="465.0" snapToPixel="false" stylesheets="@style.css" wrapText="true" VBox.vgrow="NEVER">
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                     <styleClass>
-                        <String fx:value="box" />
-                        <String fx:value="check-box" />
-                     </styleClass>
-                  </CheckBox>
-                  <CheckBox fx:id="checkBox11" mnemonicParsing="false" prefWidth="465.0" snapToPixel="false" stylesheets="@style.css" wrapText="true" VBox.vgrow="NEVER">
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                     <styleClass>
-                        <String fx:value="box" />
-                        <String fx:value="check-box" />
-                     </styleClass>
-                  </CheckBox>
-                  <CheckBox fx:id="checkBox12" mnemonicParsing="false" prefWidth="465.0" snapToPixel="false" stylesheets="@style.css" wrapText="true" VBox.vgrow="NEVER">
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                     <styleClass>
-                        <String fx:value="box" />
-                        <String fx:value="check-box" />
-                     </styleClass>
-                  </CheckBox>
-                  <CheckBox fx:id="checkBox13" mnemonicParsing="false" prefWidth="465.0" snapToPixel="false" stylesheets="@style.css" wrapText="true" VBox.vgrow="NEVER">
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                     <styleClass>
-                        <String fx:value="box" />
-                        <String fx:value="check-box" />
-                     </styleClass>
-                  </CheckBox>
-                  <CheckBox fx:id="checkBox14" mnemonicParsing="false" prefWidth="465.0" snapToPixel="false" stylesheets="@style.css" wrapText="true" VBox.vgrow="NEVER">
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                     <styleClass>
-                        <String fx:value="box" />
-                        <String fx:value="check-box" />
-                     </styleClass>
-                  </CheckBox>
-                  <CheckBox fx:id="checkBox15" mnemonicParsing="false" prefWidth="465.0" snapToPixel="false" stylesheets="@style.css" wrapText="true" VBox.vgrow="NEVER">
-                     <styleClass>
-                        <String fx:value="box" />
-                        <String fx:value="check-box" />
-                     </styleClass>
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                  </CheckBox>
+                  <Label prefHeight="17.0" prefWidth="55.0" />
+                    <ScrollPane cacheShape="false" centerShape="false" fitToWidth="true" focusTraversable="false" hbarPolicy="NEVER" pickOnBounds="false" prefHeight="756.0" prefWidth="761.0" scaleShape="false" snapToPixel="false" vbarPolicy="ALWAYS">
+                        <content>
+                            <VBox prefHeight="584.0" prefWidth="813.0" spacing="7.0" styleClass="scroll-pane" stylesheets="@speciality_style.css">
+                                <children>
+                                    <CheckBox fx:id="checkBox1" mnemonicParsing="false" prefWidth="465.0" snapToPixel="false" stylesheets="@speciality_style.css" wrapText="true" VBox.vgrow="NEVER">
+                                        <VBox.margin>
+                                            <Insets />
+                                        </VBox.margin>
+                                        <styleClass>
+                                            <String fx:value="box" />
+                                            <String fx:value="check-box" />
+                                            <String fx:value="mark" />
+                                        </styleClass>
+                                    </CheckBox>
+                                    <CheckBox fx:id="checkBox2" mnemonicParsing="false" prefWidth="465.0" snapToPixel="false" stylesheets="@speciality_style.css" wrapText="true" VBox.vgrow="NEVER">
+                                        <VBox.margin>
+                                            <Insets />
+                                        </VBox.margin>
+                                        <styleClass>
+                                            <String fx:value="box" />
+                                            <String fx:value="check-box" />
+                                        </styleClass>
+                                    </CheckBox>
+                                    <CheckBox fx:id="checkBox3" mnemonicParsing="false" prefWidth="465.0" snapToPixel="false" stylesheets="@speciality_style.css" wrapText="true" VBox.vgrow="NEVER">
+                                        <VBox.margin>
+                                            <Insets />
+                                        </VBox.margin>
+                                        <styleClass>
+                                            <String fx:value="box" />
+                                            <String fx:value="check-box" />
+                                        </styleClass>
+                                    </CheckBox>
+                                    <CheckBox fx:id="checkBox4" mnemonicParsing="false" prefWidth="465.0" snapToPixel="false" stylesheets="@speciality_style.css" wrapText="true" VBox.vgrow="NEVER">
+                                        <VBox.margin>
+                                            <Insets />
+                                        </VBox.margin>
+                                        <styleClass>
+                                            <String fx:value="box" />
+                                            <String fx:value="check-box" />
+                                        </styleClass>
+                                    </CheckBox>
+                                    <CheckBox fx:id="checkBox5" mnemonicParsing="false" prefWidth="465.0" snapToPixel="false" stylesheets="@speciality_style.css" wrapText="true" VBox.vgrow="NEVER">
+                                        <VBox.margin>
+                                            <Insets />
+                                        </VBox.margin>
+                                        <styleClass>
+                                            <String fx:value="box" />
+                                            <String fx:value="check-box" />
+                                        </styleClass>
+                                    </CheckBox>
+                                    <CheckBox fx:id="checkBox6" mnemonicParsing="false" prefWidth="465.0" snapToPixel="false" stylesheets="@speciality_style.css" wrapText="true" VBox.vgrow="NEVER">
+                                        <VBox.margin>
+                                            <Insets />
+                                        </VBox.margin>
+                                        <styleClass>
+                                            <String fx:value="box" />
+                                            <String fx:value="check-box" />
+                                        </styleClass>
+                                    </CheckBox>
+                                    <CheckBox fx:id="checkBox7" mnemonicParsing="false" prefWidth="465.0" snapToPixel="false" stylesheets="@speciality_style.css" wrapText="true" VBox.vgrow="NEVER">
+                                        <VBox.margin>
+                                            <Insets />
+                                        </VBox.margin>
+                                        <styleClass>
+                                            <String fx:value="box" />
+                                            <String fx:value="check-box" />
+                                        </styleClass>
+                                    </CheckBox>
+                                    <CheckBox fx:id="checkBox8" mnemonicParsing="false" prefWidth="465.0" snapToPixel="false" stylesheets="@speciality_style.css" wrapText="true" VBox.vgrow="NEVER">
+                                        <VBox.margin>
+                                            <Insets />
+                                        </VBox.margin>
+                                        <styleClass>
+                                            <String fx:value="box" />
+                                            <String fx:value="check-box" />
+                                        </styleClass>
+                                    </CheckBox>
+                                    <CheckBox fx:id="checkBox9" mnemonicParsing="false" prefHeight="38.0" prefWidth="868.0" snapToPixel="false" stylesheets="@speciality_style.css" wrapText="true" VBox.vgrow="NEVER">
+                                        <VBox.margin>
+                                            <Insets />
+                                        </VBox.margin>
+                                        <styleClass>
+                                            <String fx:value="box" />
+                                            <String fx:value="check-box" />
+                                        </styleClass>
+                                    </CheckBox>
+                                    <CheckBox fx:id="checkBox10" mnemonicParsing="false" prefWidth="465.0" snapToPixel="false" stylesheets="@speciality_style.css" wrapText="true" VBox.vgrow="NEVER">
+                                        <VBox.margin>
+                                            <Insets />
+                                        </VBox.margin>
+                                        <styleClass>
+                                            <String fx:value="box" />
+                                            <String fx:value="check-box" />
+                                        </styleClass>
+                                    </CheckBox>
+                                    <CheckBox fx:id="checkBox11" mnemonicParsing="false" prefWidth="465.0" snapToPixel="false" stylesheets="@speciality_style.css" wrapText="true" VBox.vgrow="NEVER">
+                                        <VBox.margin>
+                                            <Insets />
+                                        </VBox.margin>
+                                        <styleClass>
+                                            <String fx:value="box" />
+                                            <String fx:value="check-box" />
+                                        </styleClass>
+                                    </CheckBox>
+                                    <CheckBox fx:id="checkBox12" mnemonicParsing="false" prefWidth="465.0" snapToPixel="false" stylesheets="@speciality_style.css" wrapText="true" VBox.vgrow="NEVER">
+                                        <VBox.margin>
+                                            <Insets />
+                                        </VBox.margin>
+                                        <styleClass>
+                                            <String fx:value="box" />
+                                            <String fx:value="check-box" />
+                                        </styleClass>
+                                    </CheckBox>
+                                    <CheckBox fx:id="checkBox13" mnemonicParsing="false" prefWidth="465.0" snapToPixel="false" stylesheets="@speciality_style.css" wrapText="true" VBox.vgrow="NEVER">
+                                        <VBox.margin>
+                                            <Insets />
+                                        </VBox.margin>
+                                        <styleClass>
+                                            <String fx:value="box" />
+                                            <String fx:value="check-box" />
+                                        </styleClass>
+                                    </CheckBox>
+                                    <CheckBox fx:id="checkBox14" mnemonicParsing="false" prefWidth="465.0" snapToPixel="false" stylesheets="@speciality_style.css" wrapText="true" VBox.vgrow="NEVER">
+                                        <VBox.margin>
+                                            <Insets />
+                                        </VBox.margin>
+                                        <styleClass>
+                                            <String fx:value="box" />
+                                            <String fx:value="check-box" />
+                                        </styleClass>
+                                    </CheckBox>
+                                    <CheckBox fx:id="checkBox15" mnemonicParsing="false" prefWidth="465.0" snapToPixel="false" stylesheets="@speciality_style.css" wrapText="true" VBox.vgrow="NEVER">
+                                        <styleClass>
+                                            <String fx:value="box" />
+                                            <String fx:value="check-box" />
+                                        </styleClass>
+                                        <VBox.margin>
+                                            <Insets />
+                                        </VBox.margin>
+                                    </CheckBox>
+                                </children>
+                                <padding>
+                                    <Insets left="5.0" right="6.0" top="5.0" />
+                                </padding>
+                            </VBox>
+                        </content>
+                    </ScrollPane>
+                  <Label prefWidth="93.0" />
                </children>
-               <padding>
-                  <Insets left="5.0" right="6.0" top="5.0" />
-               </padding>
-            </VBox>
-         </content>
-      </ScrollPane>
-      <Button mnemonicParsing="false" onAction="#nextButton" stylesheets="@style.css" text="Дальше">
-         <VBox.margin>
-            <Insets bottom="100.0" left="400.0" />
-         </VBox.margin>
-      </Button>
-   </children>
-   <padding>
-      <Insets left="5.0" right="5.0" />
-   </padding>
+            </HBox>
+            <Label prefHeight="17.0" prefWidth="71.0" />
+            <HBox prefHeight="188.0" prefWidth="890.0">
+               <children>
+                  <Label prefHeight="76.0" prefWidth="730.0" />
+                    <Button mnemonicParsing="false" onAction="#nextButton" stylesheets="@speciality_style.css" text="Далее" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+    </children>
+    <padding>
+        <Insets left="5.0" right="5.0" />
+    </padding>
 </VBox>

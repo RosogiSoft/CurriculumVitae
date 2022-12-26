@@ -8,35 +8,55 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox fillWidth="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="500.0" styleClass="background_color" stylesheets="@style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.curriculumvitae.AvatarController">
-   <children>
-      <ImageView fx:id="imageView" cache="true" fitHeight="443.0" fitWidth="452.0" onMouseDragged="#mouseDragged" onMousePressed="#mousePressed" onMouseReleased="#mouseReleased" onScroll="#scroll" pickOnBounds="true" smooth="false">
-         <VBox.margin>
-            <Insets bottom="10.0" left="20.0" right="20.0" top="20.0" />
-         </VBox.margin>
-      </ImageView>
-      <Label fx:id="errorImage" disable="true" prefHeight="22.0" prefWidth="490.0" textAlignment="CENTER" textFill="RED" visible="false" wrapText="true">
-         <VBox.margin>
-            <Insets top="10.0" />
-         </VBox.margin></Label>
-      <HBox fillHeight="false" prefHeight="23.0" prefWidth="500.0" VBox.vgrow="NEVER">
+<VBox fillWidth="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="900.0" styleClass="background" stylesheets="@avatar_style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.curriculumvitae.SecondViewController">
+    <children>
+      <VBox prefHeight="76.0" prefWidth="570.0">
          <children>
-            <TextField fx:id="filePathTextFiled" editable="false" prefHeight="26.0" prefWidth="416.0" promptText="Выберите файл..." styleClass="field" stylesheets="@style.css">
-               <HBox.margin>
-                  <Insets right="5.0" />
-               </HBox.margin></TextField>
-            <Button mnemonicParsing="false" onAction="#SelectFile" prefHeight="27.0" prefWidth="75.0" text="Выбрать" />
+            <Label prefHeight="0.0" prefWidth="28.0" />
+            <HBox prefHeight="58.0" prefWidth="569.0">
+               <children>
+                  <Label prefHeight="43.0" prefWidth="50.0" />
+                  <Label prefHeight="58.0" prefWidth="581.0" styleClass="header" stylesheets="@avatar_style.css" text="Прикрепите ваше фото" />
+               </children>
+            </HBox>
+            <Label prefHeight="0.0" prefWidth="28.0" />
          </children>
-         <VBox.margin>
-            <Insets top="20.0" />
-         </VBox.margin>
+      </VBox>
+      <HBox prefHeight="720.0" prefWidth="890.0">
+         <children>
+            <Label prefHeight="346.0" prefWidth="55.0" />
+              <ImageView fx:id="imageView" cache="true" fitHeight="697.0" fitWidth="786.0" onMouseDragged="#mouseDragged" onMousePressed="#mousePressed" onMouseReleased="#mouseReleased" onScroll="#scroll" pickOnBounds="true" smooth="false" />
+         </children>
       </HBox>
-      <Button mnemonicParsing="false" onAction="#nextButton" prefHeight="17.0" prefWidth="521.0" text="Дальше">
-         <VBox.margin>
-            <Insets top="10.0" />
-         </VBox.margin></Button>
-   </children>
-   <padding>
-      <Insets left="5.0" right="5.0" />
-   </padding>
+      <VBox prefHeight="172.0" prefWidth="890.0">
+         <children>
+              <HBox fillHeight="false" prefHeight="43.0" prefWidth="640.0" VBox.vgrow="NEVER">
+                  <children>
+                  <Label fx:id="errorImage2" disable="true" prefHeight="43.0" prefWidth="45.0" textAlignment="CENTER" textFill="RED" wrapText="true" />
+                      <TextField fx:id="filePathTextFiled" editable="false" prefHeight="62.0" prefWidth="611.0" promptText="Выберите файл..." styleClass="choose_text" stylesheets="@avatar_style.css">
+                          <HBox.margin>
+                              <Insets right="5.0" />
+                          </HBox.margin>
+                  </TextField>
+                      <Button mnemonicParsing="false" onAction="#SelectFile" prefHeight="58.0" prefWidth="193.0" styleClass="button_choose" stylesheets="@avatar_style.css" text="Выбрать" />
+                  <Label fx:id="errorImage21" disable="true" prefHeight="43.0" prefWidth="45.0" textAlignment="CENTER" textFill="RED" wrapText="true" />
+                  </children>
+                  <VBox.margin>
+                      <Insets top="20.0" />
+                  </VBox.margin>
+              </HBox>
+              <Label fx:id="errorImage" disable="true" prefHeight="0.0" prefWidth="490.0" textAlignment="CENTER" textFill="RED" wrapText="true" />
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label fx:id="errorImage212" disable="true" prefHeight="43.0" prefWidth="45.0" textAlignment="CENTER" textFill="RED" wrapText="true" />
+                    <Button mnemonicParsing="false" onAction="#nextButton" prefHeight="65.0" prefWidth="804.0" styleClass="button_next" stylesheets="@avatar_style.css" text="Далее" />
+                  <Label fx:id="errorImage211" disable="true" prefHeight="43.0" prefWidth="45.0" textAlignment="CENTER" textFill="RED" wrapText="true" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+    </children>
+    <padding>
+        <Insets left="5.0" right="5.0" />
+    </padding>
 </VBox>

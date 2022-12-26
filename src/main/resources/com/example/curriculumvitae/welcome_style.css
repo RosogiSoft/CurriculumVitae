@@ -1,0 +1,23 @@
+.background{
+    -fx-background-color: #4D7BFF;
+}
+
+.header{
+    -fx-font-family: "Vela Sans ExtBd";
+    -fx-font-size: 50px;
+    -fx-text-fill: #EBEBEB;
+}
+
+.head_text{
+    -fx-font-family: "Vela Sans SemBd";
+    -fx-font-size: 32px;
+    -fx-text-fill: #EBEBEB;
+}
+
+.button{
+    -fx-background-radius: 31px;
+    -fx-background-color: #EBEBEB;
+    -fx-font-family: "Vela Sans ExtBd";
+    -fx-font-size: 39px;
+    -fx-text-fill: #4D7BFF;
+}
