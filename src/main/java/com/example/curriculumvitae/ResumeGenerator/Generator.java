@@ -51,7 +51,7 @@ public class Generator {
                 ParagraphPreprocess.addImageToParagraph(
                         ParagraphPreprocess.simpleAddImageToP(
                                 wordPackage, Files.readAllBytes(
-                                        Path.of("src/main/resources/com/example/curriculumvitae/pic/shapka.png")
+                                        Path.of(System.getProperty("user.home") + "\\Desktop\\Application\\shapka.png")
                                 ), "Logo", "Logo", 1, 2, false
                         )));
         mainDocumentPart.getContent().add(setTable(wordPackage, ParagraphPreprocess.simpleAddImageToP(
