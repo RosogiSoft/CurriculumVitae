@@ -1,6 +1,7 @@
 package com.example.curriculumvitae;
 
 import com.example.curriculumvitae.ResumeGenerator.Generator;
+import com.example.curriculumvitae.databaseModel.DataBaseConnect;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -18,7 +19,7 @@ public class FinalController {
         Generator generator = new Generator(filePath + File.separator + filename);
 
         //Attach photo by id in DataBase
-        generator.initFile(1);
+        generator.initFile(DataBaseConnect.getUserLastId());
         Stage stage = (Stage) resumePathLabel.getScene().getWindow();
         stage.close();
     }
