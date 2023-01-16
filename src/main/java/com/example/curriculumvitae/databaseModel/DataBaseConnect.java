@@ -33,6 +33,7 @@ public class DataBaseConnect {
             statementOne.setString(6, person.getMailAddress());
             statementOne.addBatch();
             statementOne.executeBatch();
+            
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -122,4 +123,19 @@ public class DataBaseConnect {
         }
         return new byte[0];
     }
+
+    public static int getUserLastId(){
+        String sqlQ = "SELECT ID FROM RESUME.Student ORDER BY ID DESC LIMIT 1";
+        try(Connection conn = connect()){
+            Statement statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery(sqlQ);
+            if (rs.next()){
+                return rs.getInt("ID");
+            }
+        } catch(SQLException e) {
+            e.printStackTrace();
+        }
+        return -1;
+    }
+
 }

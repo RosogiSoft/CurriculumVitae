@@ -42,6 +42,5 @@ public class WelcomeController {
             return;
         }
         errorLog.setVisible(false);
-
     }
 }
