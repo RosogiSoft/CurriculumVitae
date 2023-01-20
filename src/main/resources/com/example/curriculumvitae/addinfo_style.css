@@ -4,35 +4,40 @@
 
 .header{
     -fx-font-family: "Vela Sans ExtBd";
-    -fx-font-size: 40px;
+    -fx-font-size: 30px;
     -fx-text-fill: #002975;
 }
 
 .sec_header{
     -fx-font-family: "Vela Sans Bd";
-    -fx-font-size: 28px;
-    -fx-text-fill: #005EAA;
-}
-
-.third_header{
-    -fx-font-family: "Vela Sans";
-    -fx-font-size: 26px;
+    -fx-font-size: 14px;
     -fx-text-fill: #005EAA;
 }
 
 .button{
-    -fx-background-radius: 21px;
+    -fx-background-radius: 18px;
     -fx-background-color: #002975;
     -fx-font-family: "Vela Sans ExtBd";
-    -fx-font-size: 30px;
+    -fx-font-size: 20px;
     -fx-text-fill: #EBEBEB;
 }
 
 .text_frame{
-    -fx-border-width: 2px;
-    -fx-border-color: #4D7BFF;
+    -fx-border-width: 1.5px;
+    -fx-border-color: #005EAA;
     -fx-background-color: #ffffff;
     -fx-font-family: "Noto Mono";
-    -fx-font-size: 26px;
+    -fx-font-size: 16px;
     -fx-text-fill: #005EAA;
+}
+
+.field{
+    -fx-background-color: #EBEBEB;
+    -fx-background-radius: 18px;
+    -fx-border-width: 2px;
+    -fx-border-color: #005EAA;
+    -fx-border-radius: 18px;
+    -fx-font-family: "Noto Mono";
+    -fx-font-size: 16px;
+    -fx-text-fill: #002975;
 }

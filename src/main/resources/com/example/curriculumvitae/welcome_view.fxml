@@ -6,25 +6,30 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" prefHeight="1000.0" prefWidth="900.0" spacing="20.0" style="-fx-background-color: 4D7BFF;" styleClass="background" stylesheets="@welcome_style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.curriculumvitae.WelcomeController">
+<VBox alignment="CENTER"  prefHeight="600.0" prefWidth="500.0" spacing="20.0" style="-fx-background-color: 4D7BFF;" styleClass="background" stylesheets="@welcome_style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.curriculumvitae.WelcomeController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
     <children>
         <Label alignment="CENTER" layoutX="423.0" prefHeight="88.0" prefWidth="506.0" styleClass="header" stylesheets="@welcome_style.css" text="Здравствуй, студент!" textAlignment="CENTER" textFill="#ebebeb">
             <font>
-                <Font name="Vela Sans ExtraBold" size="50.0" />
+                <Font size="20.0" />
             </font>
         </Label>
         <Label prefHeight="321.0" prefWidth="640.0" styleClass="head_text" stylesheets="@welcome_style.css" text="Сейчас тебе предстоит создать свое резюме, поэтому внимательно читай вопросы и отвечай на них честно ведь именно с этим резюме будет знакомиться твой будущий работодатель." textAlignment="CENTER" textFill="#ebebeb" wrapText="true">
             <font>
-                <Font name="Vela Sans SemiBold" size="32.0" />
+                <Font size="28.0" />
             </font>
         </Label>
-        <Button mnemonicParsing="false" onAction="#startButton" prefHeight="82.0" prefWidth="226.0" stylesheets="@welcome_style.css" text="НАЧАТЬ" textFill="WHITE">
+        <Button mnemonicParsing="false" onAction="#startButton" prefHeight="63.0" prefWidth="166.0" stylesheets="@welcome_style.css" text="НАЧАТЬ" textFill="WHITE">
             <font>
                 <Font name="Vela Sans ExtraBold" size="39.0" />
-            </font></Button>
-        <Label fx:id="errorLog" prefHeight="67.0" prefWidth="481.0" style="-fx-background-color: 4D7BFF;" />
+            </font>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+         <padding>
+            <Insets bottom="5.0" />
+         </padding></Button>
     </children>
 </VBox>

@@ -4,15 +4,15 @@
 
 .header{
     -fx-font-family: "Vela Sans ExtBd";
-    -fx-font-size: 40px;
+    -fx-font-size: 30px;
     -fx-text-fill: #002975;
 }
 
 .button{
-    -fx-background-radius: 21px;
+    -fx-background-radius: 18px;
     -fx-background-color: #002975;
     -fx-font-family: "Vela Sans ExtBd";
-    -fx-font-size: 30px;
+    -fx-font-size: 20px;
     -fx-text-fill: #EBEBEB;
 }
 
@@ -26,14 +26,14 @@
 
 .check-box {
     -fx-font-family: "Noto Mono";
-    -fx-font-size: 26px;
+    -fx-font-size: 20px;
     -fx-text-fill: #005EAA;
 }
 
 .check-box:selected > .box > .mark,
 .check-box:indeterminate  > .box > .mark,
 .check-box:armed > .box > .mark{
-    -fx-background-radius: 8px;
+    -fx-background-radius: 5px;
     -fx-background-color: #FF7614;
 }
 

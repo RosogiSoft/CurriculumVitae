@@ -4,14 +4,14 @@
 
 .header{
     -fx-font-family: "Vela Sans ExtBd";
-    -fx-font-size: 50px;
+    -fx-font-size: 32px;
     -fx-text-fill: #4D7BFF;
 }
 
 .button{
-    -fx-background-radius: 31px;
+    -fx-background-radius: 25px;
     -fx-background-color: #4D7BFF;
     -fx-font-family: "Vela Sans ExtBd";
-    -fx-font-size: 39px;
+    -fx-font-size: 28px;
     -fx-text-fill: #EBEBEB;
 }

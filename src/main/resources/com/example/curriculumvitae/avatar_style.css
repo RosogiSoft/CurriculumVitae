@@ -4,32 +4,32 @@
 
 .header{
     -fx-font-family: "Vela Sans ExtBd";
-    -fx-font-size: 40px;
+    -fx-font-size: 30px;
     -fx-text-fill: #002975;
 }
 
 .choose_text{
-    -fx-background-radius: 21px;
+    -fx-background-radius: 18px;
     -fx-background-color: #EBEBEB;
     -fx-border-width: 2px;
     -fx-border-radius: 21px;
     -fx-border-color: #005EAA;
     -fx-font-family: "Noto Mono";
-    -fx-font-size: 28px;
+    -fx-font-size: 20px;
     -fx-text-fill: #005EAA;
 }
 
 .button_choose{
-    -fx-background-radius: 21px;
+    -fx-background-radius: 15px;
     -fx-background-color: #005EAA;
     -fx-font-family: "Vela Sans ExtBd";
-    -fx-font-size: 28px;
+    -fx-font-size: 20px;
     -fx-text-fill: #EBEBEB;
 }
 .button_next{
-    -fx-background-radius: 21px;
+    -fx-background-radius: 18px;
     -fx-font-family: "Vela Sans ExtBd";
     -fx-background-color: #002975;
-    -fx-font-size: 30px;
+    -fx-font-size: 25px;
     -fx-text-fill: #EBEBEB;
 }

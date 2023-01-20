@@ -25,7 +25,7 @@ public class WelcomeController {
     }
 
     public void startButton(ActionEvent actionEvent) throws IOException {
-        connectToTheServer();
+        //connectToTheServer();
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("mainInfo_view.fxml")));
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -33,7 +33,7 @@ public class WelcomeController {
         stage.show();
     }
 
-    private void connectToTheServer() {
+    /*private void connectToTheServer() {
         boolean statusOK = true;
 
         if (!statusOK) {
@@ -41,7 +41,7 @@ public class WelcomeController {
             errorLog.setVisible(true);
             return;
         }
-        errorLog.setVisible(false);
+       // errorLog.setVisible(false);
 
-    }
+    }*/
 }

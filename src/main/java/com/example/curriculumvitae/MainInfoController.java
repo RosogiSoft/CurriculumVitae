@@ -32,13 +32,7 @@ public class MainInfoController {
     @FXML
     public TextField name;
     @FXML
-    public Label errorDate;
-    @FXML
-    public Label errorNumber;
-    @FXML
-    public Label errorMail;
-    @FXML
-    public Label errorGroup;
+    public Label errorLabel;
 
     private Stage stage;
     private Scene scene;
@@ -135,11 +129,11 @@ public class MainInfoController {
         matcher = pattern.matcher(dateOfBirth.getText());
 
         if (!matcher.matches()) {
-            errorDate.setVisible(true);
-            errorDate.setText("!");
+            errorLabel.setVisible(true);
+            errorLabel.setText("Неправильно введена дата рождения!");
             return false;
         }
-        errorDate.setVisible(false);
+        errorLabel.setVisible(false);
         return true;
     }
 
@@ -150,11 +144,11 @@ public class MainInfoController {
         matcher = pattern.matcher(phoneNumber.getText());
 
         if (!matcher.matches()) {
-            errorNumber.setVisible(true);
-            errorNumber.setText("!");
+            errorLabel.setVisible(true);
+            errorLabel.setText("Неправильно введен номер телефона!");
             return false;
         }
-        errorNumber.setVisible(false);
+        errorLabel.setVisible(false);
         return true;
     }
 
@@ -164,11 +158,11 @@ public class MainInfoController {
         matcher = pattern.matcher(mailAddress.getText());
 
         if (!matcher.matches()) {
-            errorMail.setVisible(true);
-            errorMail.setText("!");
+            errorLabel.setVisible(true);
+            errorLabel.setText("Неправильно введен адрес электронной почты!");
             return false;
         }
-        errorMail.setVisible(false);
+        errorLabel.setVisible(false);
         return true;
     }
 
@@ -178,11 +172,11 @@ public class MainInfoController {
         matcher = pattern.matcher(groupNumber.getText());
 
         if (!matcher.matches()) {
-            errorGroup.setVisible(true);
-            errorGroup.setText("!");
+            errorLabel.setVisible(true);
+            errorLabel.setText("Неправильно введен номер группы!");
             return false;
         }
-        errorGroup.setVisible(false);
+        errorLabel.setVisible(false);
         return true;
     }
 
