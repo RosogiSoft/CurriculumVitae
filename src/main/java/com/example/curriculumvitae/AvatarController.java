@@ -176,4 +176,21 @@ public class AvatarController {
     }
 
 
+    public void zoomIn(ActionEvent actionEvent) {
+    }
+
+    public void zoomOut(ActionEvent actionEvent) {
+    }
+
+    public void shiftRight(ActionEvent actionEvent) {
+    }
+
+    public void shiftUp(ActionEvent actionEvent) {
+    }
+
+    public void shiftDown(ActionEvent actionEvent) {
+    }
+
+    public void shiftLeft(ActionEvent actionEvent) {
+    }
 }
