@@ -29,15 +29,14 @@ public class NewAvatarController {
     public ImageView imageView;
     @FXML
     public TextField filePathTextFiled;
-    @FXML
-    public Label errorImage;
     public FileChooser fileChooser = new FileChooser();
     public File file;
     public Image image;
 
+    private PixelReader pixelReader;
+    private WritableImage writableImage;
     private int height = 120, width = 90;
-    private int heightRes = 0, widthRes = 0;
-    private int centerX, centerY;
+    private int heightRes, widthRes;
     private int step = 10;
     private int x = 0, y = 0;
 
@@ -56,15 +55,25 @@ public class NewAvatarController {
 
 //Модуль проверки файла на вес, тип и последующая загрузка изображение с проверкой ращрешения изображения
     private boolean fileCheck(File file){
-        return (checkSizeOfFile(file) && checkTypeOfFile(file));
+        return  (checkSizeOfFile(file) && checkTypeOfFile(file));
     }
     private boolean checkSizeOfFile(File file){
-        return file.length() <= 16777216; //16 мегабайт
+        if (file.length() <= 16777216){ //16 мегабайт
+            return true;
+        } else {
+            filePathTextFiled.setText("Изображение слишком большое!");
+        }
+        return false;
     }
     private boolean checkTypeOfFile(File file){
         String name = file.getName();
         name = name.split("\\.")[1];
-        return (name.equals("png") || name.equals("jpg") || name.equals("jpeg"));
+        if (name.equals("png") || name.equals("jpg") || name.equals("jpeg")){
+            return true;
+        } else {
+            filePathTextFiled.setText("Выберете файл с раширением png, jpeg или png!");
+        }
+        return false;
     }
     private boolean checkResolutionOfImage(Image image){
         return image.getWidth() <= 2000 && image.getHeight() <= 2000;
@@ -77,7 +86,7 @@ public class NewAvatarController {
 
 //Методы для изменения отображения
     public void zoomOut(ActionEvent actionEvent) {
-        if ((height + 50) < heightRes && (width + 50) < heightRes){
+        if ((height + 100) < heightRes && (width + 100) < heightRes){
             height = height + 50;
             width = width + 50;
             step = step + 5;
@@ -114,7 +123,7 @@ public class NewAvatarController {
         }
     }
     public void shiftUp(ActionEvent actionEvent) {
-        if (y > 0){
+        if (y - step > 0){
             y = y - step;
             redrawImage(image);
         } else {
@@ -122,7 +131,7 @@ public class NewAvatarController {
         }
     }
     public void shiftDown(ActionEvent actionEvent) {
-        if ((y + step) < heightRes ){
+        if ((y + step + 1) < heightRes ){
             y = y + step;
             redrawImage(image);
         } else {
@@ -139,14 +148,20 @@ public class NewAvatarController {
         widthRes = (int) image.getWidth();
     }
     private void redrawImage(Image image){
-        PixelReader pixelReader = image.getPixelReader();
-        WritableImage writableImage = new WritableImage(pixelReader, x, y, height, width);
+        pixelReader = image.getPixelReader();
+        writableImage = new WritableImage(pixelReader, x, y, height, width);
         imageView.setImage(writableImage);
     }
+
+    private void safeCroppedImage(Image image){
+        pixelReader = image.getPixelReader();
+        writableImage = new WritableImage(pixelReader, x, y, height, width);
+        File croppedPhoto = (File) writableImage.getPixelReader();
+        WelcomeController.person.setImage(croppedPhoto);
+    }
+
     public void nextButton(ActionEvent actionEvent) throws IOException {
-        WelcomeController.person.setImage(file);
-        DataBaseConnect.addData(WelcomeController.person);
-        DataBaseConnect.addDataPic(WelcomeController.person);
+        safeCroppedImage(image);
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("speciality_view.fxml")));
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);

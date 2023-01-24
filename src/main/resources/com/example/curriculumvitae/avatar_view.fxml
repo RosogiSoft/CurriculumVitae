@@ -16,14 +16,14 @@
             <Insets left="20.0" right="20.0" />
          </VBox.margin>
       </ImageView>
-      <HBox prefHeight="46.0" prefWidth="458.0" spacing="40.0">
+      <HBox prefHeight="46.0" prefWidth="458.0" spacing="37.0">
          <children>
             <Button mnemonicParsing="false" onAction="#zoomIn" styleClass="button_choose" stylesheets="@avatar_style.css" text="+" />
             <Button mnemonicParsing="false" onAction="#zoomOut" styleClass="button_choose" stylesheets="@avatar_style.css" text="-" />
-             <Button mnemonicParsing="false" onAction="#shiftRight" styleClass="button_choose" stylesheets="@avatar_style.css" text="&gt;" />
-             <Button mnemonicParsing="false" onAction="#shiftUp" styleClass="button_choose" stylesheets="@avatar_style.css" text="^" />
-             <Button mnemonicParsing="false" onAction="#shiftDown" styleClass="button_choose" stylesheets="@avatar_style.css" text="/" />
-            <Button mnemonicParsing="false" onAction="#shiftLeft" styleClass="button_choose" stylesheets="@avatar_style.css" text="&lt;" />
+            <Button mnemonicParsing="false" onAction="#shiftLeft" styleClass="button_choose" stylesheets="@avatar_style.css" text="←" />
+             <Button mnemonicParsing="false" onAction="#shiftUp" styleClass="button_choose" stylesheets="@avatar_style.css" text="↑" />
+             <Button mnemonicParsing="false" onAction="#shiftRight" styleClass="button_choose" stylesheets="@avatar_style.css" text="→" />
+             <Button mnemonicParsing="false" onAction="#shiftDown" styleClass="button_choose" stylesheets="@avatar_style.css" text="↓" />
          </children>
          <VBox.margin>
             <Insets left="15.0" />
