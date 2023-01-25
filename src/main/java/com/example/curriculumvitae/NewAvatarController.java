@@ -32,7 +32,6 @@ public class NewAvatarController {
     public FileChooser fileChooser = new FileChooser();
     public File file;
     public Image image;
-
     private PixelReader pixelReader;
     private WritableImage writableImage;
     private int height = 120, width = 90;
@@ -153,15 +152,19 @@ public class NewAvatarController {
         imageView.setImage(writableImage);
     }
 
-    private void safeCroppedImage(Image image){
+   /* private void safeCroppedImage(Image image){
         pixelReader = image.getPixelReader();
         writableImage = new WritableImage(pixelReader, x, y, height, width);
-        File croppedPhoto = (File) writableImage.getPixelReader();
+        File croppedPhoto = writableImage
         WelcomeController.person.setImage(croppedPhoto);
+    }*/
+
+    private void safeCroppedImage(File file){
+        WelcomeController.person.setImage(file);
     }
 
     public void nextButton(ActionEvent actionEvent) throws IOException {
-        safeCroppedImage(image);
+        safeCroppedImage(file);
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("speciality_view.fxml")));
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
