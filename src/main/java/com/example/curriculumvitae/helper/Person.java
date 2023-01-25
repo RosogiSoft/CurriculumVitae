@@ -23,6 +23,7 @@ public class Person {
     private String formOfStudy;
     private String yearOfEnding;
     private boolean[] competency = new boolean[15];
+    private String specialytiInfo;
 
 
 
@@ -46,6 +47,14 @@ public class Person {
     }
 
     //Down bellow only setters and getters of Person fields
+
+    public String getSpecialytiInfo() {
+        return specialytiInfo;
+    }
+
+    public void setSpecialytiInfo(String specialytiInfo) {
+        this.specialytiInfo = specialytiInfo;
+    }
     public String getName() {
         return name;
     }

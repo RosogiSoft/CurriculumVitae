@@ -69,6 +69,16 @@ public class SpecialityController {
         }
     }
 
+    private void getCompetency(){
+        String finalString = "";
+        for (CheckBox checkBox : checkBoxes){
+            if (checkBox.isArmed()){
+                finalString += checkBox.getText() + ", ";
+            }
+        }
+        WelcomeController.person.setSpecialytiInfo(finalString);
+    }
+
     public void nextButton(ActionEvent actionEvent) throws Exception {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("education_veiw.fxml")));
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
