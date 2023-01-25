@@ -101,6 +101,8 @@ public class Generator {
 
                 case 3:
                     cell = (Tc) descriptionCells.get(i);
+                    cell.getContent().add(
+                            ParagraphPreprocess.addTextToParagraph(WelcomeController.person.getSpecialytiInfo(), 14 * 2));
                     cell.getContent().add(ParagraphPreprocess.addTextToParagraph(
                             String.format("Дополнительные компетенции: %s",
                                     WelcomeController.person.getAdditionalCompetencies()), 14 * 2));

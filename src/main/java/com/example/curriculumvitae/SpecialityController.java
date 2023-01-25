@@ -70,16 +70,17 @@ public class SpecialityController {
     }
 
     private void getCompetency(){
-        String finalString = "";
+        var builder = new StringBuilder();
         for (CheckBox checkBox : checkBoxes){
-            if (checkBox.isArmed()){
-                finalString += checkBox.getText() + ", ";
+            if (checkBox.isSelected()){
+                builder.append(checkBox.getText()).append(", ");
             }
         }
-        WelcomeController.person.setSpecialytiInfo(finalString);
+        WelcomeController.person.setSpecialytiInfo(builder.toString());
     }
 
     public void nextButton(ActionEvent actionEvent) throws Exception {
+        getCompetency();
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("education_veiw.fxml")));
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);

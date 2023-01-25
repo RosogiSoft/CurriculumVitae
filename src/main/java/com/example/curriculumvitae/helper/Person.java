@@ -43,6 +43,7 @@ public class Person {
         System.out.println(this.driverLicense);
         System.out.println(this.additionalCompetencies);
         System.out.println(this.socialNetwork);
+        System.out.println(this.specialytiInfo);
 
     }
 
