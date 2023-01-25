@@ -6,13 +6,15 @@ import org.docx4j.openpackaging.parts.WordprocessingML.BinaryPartAbstractImage;
 import org.docx4j.wml.*;
 
 import javax.xml.bind.JAXBElement;
+import java.io.File;
 import java.math.BigInteger;
+import java.nio.file.Files;
 import java.util.List;
 
 public class ParagraphPreprocess {
 
     public static Inline simpleAddImageToP(WordprocessingMLPackage wordPackage,
-                                           byte[] fileContent,
+                                           File fileContent,
                                            String fileNameHint,
                                            String altText,
                                            int id1,
@@ -20,7 +22,7 @@ public class ParagraphPreprocess {
                                            boolean link,
                                            int maxWidth) throws Exception {
 
-        BinaryPartAbstractImage imagePart = BinaryPartAbstractImage.createImagePart(wordPackage, fileContent);
+        BinaryPartAbstractImage imagePart = BinaryPartAbstractImage.createImagePart(wordPackage, Files.readAllBytes(fileContent.toPath()));
         return imagePart.createImageInline(fileNameHint, altText, id1, id2, link, maxWidth);
     }
 

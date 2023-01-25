@@ -122,4 +122,18 @@ public class DataBaseConnect {
         }
         return new byte[0];
     }
+
+    public static int getUserLastId(){
+        String sqlQ = "SELECT ID FROM RESUME.Student ORDER BY ID DESC LIMIT 1";
+        try(Connection conn = connect()){
+            Statement statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery(sqlQ);
+            if (rs.next()){
+                return rs.getInt("ID") - 1;
+            }
+        } catch(SQLException e) {
+            e.printStackTrace();
+        }
+        return -1;
+    }
 }

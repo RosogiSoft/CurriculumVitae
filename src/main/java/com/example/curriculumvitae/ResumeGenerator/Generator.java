@@ -27,7 +27,7 @@ public class Generator {
     }
 
 
-    public void initFile(int id) throws Exception {
+    public void initFile() throws Exception {
         WordprocessingMLPackage wordPackage = WordprocessingMLPackage.createPackage();
         MainDocumentPart mainDocumentPart = wordPackage.getMainDocumentPart();
         mainDocumentPart.getContent().add(
@@ -38,7 +38,7 @@ public class Generator {
                                 ), "Logo", "Logo", 1, 2, false
                         )));
         mainDocumentPart.getContent().add(setTable(wordPackage, ParagraphPreprocess.simpleAddImageToP(
-                wordPackage, DataBaseConnect.getUserPicFromDataBase(id), "UserPhoto",
+                wordPackage, WelcomeController.person.getImageFile(), "UserPhoto",
                 "UserPhoto", 3, 4, false, 2360
         )));
         File docxFile = new File(path);
