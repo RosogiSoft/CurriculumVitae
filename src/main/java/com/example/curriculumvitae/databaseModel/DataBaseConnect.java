@@ -33,7 +33,6 @@ public class DataBaseConnect {
             statementOne.setString(6, person.getMailAddress());
             statementOne.addBatch();
             statementOne.executeBatch();
-            //Test of image load in database
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -122,5 +121,34 @@ public class DataBaseConnect {
             e.printStackTrace();
         }
         return new byte[0];
+    }
+
+    public static int getUserLastId(){
+        String sqlQ = "SELECT ID FROM RESUME.Student ORDER BY ID DESC LIMIT 1";
+        try(Connection conn = connect()){
+            Statement statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery(sqlQ);
+            if (rs.next()){
+                return rs.getInt("ID") - 1;
+            }
+        } catch(SQLException e) {
+            e.printStackTrace();
+        }
+        return -1;
+    }
+
+    public static ArrayList<String> getSoftSkills() {
+        ArrayList<String> softSkills = new ArrayList<>();
+        String sqlQ = "SELECT Soft_Skill FROM RESUME.Soft_Skills";
+        try(Connection conn = connect()){
+            Statement statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery(sqlQ);
+            while (rs.next()){
+                softSkills.add(rs.getString("Soft_Skill"));
+            }
+        } catch(SQLException e) {
+            e.printStackTrace();
+        }
+        return softSkills;
     }
 }

@@ -1,5 +1,6 @@
 package com.example.curriculumvitae.ResumeGenerator;
 
+import com.example.curriculumvitae.WelcomeController;
 import com.example.curriculumvitae.databaseModel.DataBaseConnect;
 import com.example.curriculumvitae.helper.GeneratorFilling;
 import com.example.curriculumvitae.helper.ParagraphPreprocess;
@@ -25,42 +26,24 @@ public class Generator {
         this.path = path;
     }
 
-    private List<Object> addElementsFirstCol(Inline image) {
-        List<Object> array = new ArrayList<>();
-        array.add(ParagraphPreprocess.addImageToParagraph(image, JcEnumeration.CENTER));
-        array.add(ParagraphPreprocess.addTextToParagraph("Образование", 12 * 2, new BooleanDefaultTrue(), JcEnumeration.RIGHT));
-        array.add(ParagraphPreprocess.addTextToParagraph("Дополнительное образование", 12 * 2, new BooleanDefaultTrue(), JcEnumeration.RIGHT));
-        array.add(ParagraphPreprocess.addTextToParagraph("Профессиональные навыки", 12 * 2, new BooleanDefaultTrue(), JcEnumeration.RIGHT));
-        array.add(ParagraphPreprocess.addTextToParagraph("Личные качества", 12 * 2, new BooleanDefaultTrue(), JcEnumeration.RIGHT));
-        array.add(ParagraphPreprocess.addTextToParagraph("Дополнительная информация", 12 * 2, new BooleanDefaultTrue(), JcEnumeration.RIGHT));
-        return array;
-    }
 
-    private List<String> setSimpleData() {
-        ArrayList<String> array = new ArrayList<>();
-        array.add("c");
-        array.add("f");
-        return array;
-    }
-
-    public void initFile(int id) throws Exception {
+    public void initFile() throws Exception {
         WordprocessingMLPackage wordPackage = WordprocessingMLPackage.createPackage();
         MainDocumentPart mainDocumentPart = wordPackage.getMainDocumentPart();
         mainDocumentPart.getContent().add(
                 ParagraphPreprocess.addImageToParagraph(
                         ParagraphPreprocess.simpleAddImageToP(
                                 wordPackage, Files.readAllBytes(
-                                        Path.of("src/main/resources/com/example/curriculumvitae/pic/shapka.png")),
-                                "Logo", "Logo", 1, 2, false)
-                ));
+                                        Path.of("shapka.png")
+                                ), "Logo", "Logo", 1, 2, false
+                        )));
         mainDocumentPart.getContent().add(setTable(wordPackage, ParagraphPreprocess.simpleAddImageToP(
-                wordPackage, DataBaseConnect.getUserPicFromDataBase(id), "UserPhoto",
+                wordPackage, WelcomeController.person.getImageFile(), "UserPhoto",
                 "UserPhoto", 3, 4, false, 2360
         )));
         File docxFile = new File(path);
         wordPackage.save(docxFile);
     }
-
 
     private Tbl setTable(WordprocessingMLPackage wordPackage, Inline image) {
         int writableWidth = wordPackage
@@ -69,7 +52,7 @@ public class Generator {
                 .get(0)
                 .getPageDimensions()
                 .getWritableWidthTwips();
-        List<Object> tableItems = addElementsFirstCol(image);
+        List<Object> tableItems = generatorFilling.addElementsFirstCol(image);
         List<Object> descriptionCells = new ArrayList<>();
         int columnNumber = 2;
         Tbl table = TblFactory.createTable(6, columnNumber, writableWidth / columnNumber);
@@ -109,22 +92,31 @@ public class Generator {
                     break;
                 case 1:
                     cell = (Tc) descriptionCells.get(i);
-                    cell.getContent().add(ParagraphPreprocess.setList(setSimpleData()));
+                    for (int c = 0; c < generatorFilling.educationInfo().size(); c++) {
+                        cell.getContent().add(generatorFilling.educationInfo().get(c));
+                    }
                     break;
                 case 2:
-
                     break;
 
                 case 3:
-
+                    cell = (Tc) descriptionCells.get(i);
+                    cell.getContent().add(ParagraphPreprocess.addTextToParagraph(
+                            String.format("Дополнительные компетенции: %s",
+                                    WelcomeController.person.getAdditionalCompetencies()), 14 * 2));
                     break;
 
                 case 4:
-
+                    cell = (Tc) descriptionCells.get(i);
+                    for (int c = 0; c < generatorFilling.personalQualities().size(); c++) {
+                        cell.getContent().add(generatorFilling.personalQualities().get(c));
+                    }
                     break;
-
                 case 5:
-
+                    cell = (Tc) descriptionCells.get(i);
+                    for (int c = 0; c < generatorFilling.additionalInformation().size(); c++) {
+                        cell.getContent().add(generatorFilling.additionalInformation().get(c));
+                    }
                     break;
             }
         }

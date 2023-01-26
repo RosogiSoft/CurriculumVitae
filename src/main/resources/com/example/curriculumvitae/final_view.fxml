@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="500.0" styleClass="background" stylesheets="@final_style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.curriculumvitae.FinalController">
+    <children>
+        <Label fx:id="resumePathLabel" prefHeight="263.0" prefWidth="474.0" styleClass="header" text="Спасибо за предоставленную информацию. Свое резюме вы можете найти на рабочем столе!" textAlignment="CENTER" wrapText="true">
+         <VBox.margin>
+            <Insets bottom="40.0" left="15.0" right="15.0" />
+         </VBox.margin></Label>
+      <HBox prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Label prefHeight="17.0" prefWidth="98.0" />
+                <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#endApplication" prefHeight="91.0" prefWidth="252.0" stylesheets="@final_style.css" text="ЗАВЕРШИТЬ" textAlignment="CENTER" />
+         </children>
+      </HBox>
+    </children>
+   <padding>
+      <Insets bottom="50.0" left="20.0" right="20.0" top="100.0" />
+   </padding>
+</VBox>
