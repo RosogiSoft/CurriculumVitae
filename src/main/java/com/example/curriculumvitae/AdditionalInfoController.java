@@ -29,7 +29,7 @@ public class AdditionalInfoController {
 
     public void nextButton(ActionEvent actionEvent) throws Exception {
         pushData();
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("final_view.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("softskills_view.fxml")));
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);

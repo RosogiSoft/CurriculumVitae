@@ -136,4 +136,19 @@ public class DataBaseConnect {
         }
         return -1;
     }
+
+    public static ArrayList<String> getSoftSkills() {
+        ArrayList<String> softSkills = new ArrayList<>();
+        String sqlQ = "SELECT Soft_Skill FROM RESUME.Soft_Skills";
+        try(Connection conn = connect()){
+            Statement statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery(sqlQ);
+            while (rs.next()){
+                softSkills.add(rs.getString("Soft_Skill"));
+            }
+        } catch(SQLException e) {
+            e.printStackTrace();
+        }
+        return softSkills;
+    }
 }

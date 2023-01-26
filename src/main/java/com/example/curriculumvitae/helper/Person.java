@@ -3,6 +3,7 @@ package com.example.curriculumvitae.helper;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.util.Arrays;
 
 public class Person {
     private String name;
@@ -24,6 +25,7 @@ public class Person {
     private String yearOfEnding;
     private boolean[] competency = new boolean[15];
     private String specialytiInfo;
+    private String[] softSkills;
 
 
 
@@ -31,18 +33,18 @@ public class Person {
 
     }
 
-    public void printData() {
-        System.out.println(this.name);
-        System.out.println(this.dateOfBirth);
-        System.out.println(this.phoneNumber);
-        System.out.println(this.mailAddress);
-        System.out.println(this.groupNumber);
-        System.out.println(this.speciality);
-        System.out.println(this.additionalInfo);
-        System.out.println(this.foreignLanguage);
-        System.out.println(this.driverLicense);
-        System.out.println(this.additionalCompetencies);
-        System.out.println(this.socialNetwork);
+    public void showInfo() {
+        System.out.println("Итоговая инофрмация о человеке: ");
+        System.out.println("Имя: " + this.name + ", Дата рождения: " + this.dateOfBirth);
+        System.out.println("Номер телефона: " + this.phoneNumber + ", Номер телефона: " + this.mailAddress);
+        System.out.println("Социальные сети: " + this.socialNetwork);
+        System.out.println("Номер группы: " + this.groupNumber + "Специальность: " + this.speciality);
+        System.out.println("Дополнительная информация: " + this.additionalInfo);
+        System.out.println("Иностранный язык: " + this.foreignLanguage);
+        System.out.println("Водительское удостоверение: " + this.driverLicense);
+        System.out.println("Дополнительные навыки: " + this.additionalCompetencies);
+        System.out.println("Социальные навыки: " + Arrays.toString(this.softSkills));
+
 
     }
 
@@ -202,5 +204,14 @@ public class Person {
     public void setCompetency(boolean[] competency) {
         this.competency = competency;
     }
+
+    public String[] getSoftSkills() {
+        return softSkills;
+    }
+
+    public void setSoftSkills(String[] softSkills) {
+        this.softSkills = softSkills;
+    }
+
 
 }
