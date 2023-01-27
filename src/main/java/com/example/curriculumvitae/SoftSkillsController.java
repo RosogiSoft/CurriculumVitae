@@ -28,7 +28,6 @@ public class SoftSkillsController {
     public ChoiceBox<String> skillFive;
 
     private final ArrayList<String> softSkills = DataBaseConnect.getSoftSkills();
-
     private ArrayList<ChoiceBox> choiceBoxes = new ArrayList<>();
 
 
@@ -48,7 +47,7 @@ public class SoftSkillsController {
     }
 
     private void writeData(){
-        String[] array = new String[0];
+        String[] array = new String[choiceBoxes.size()];
         for (int i = 0; i < choiceBoxes.size(); i++){
             array[i] = choiceBoxes.get(i).getValue().toString();
         }

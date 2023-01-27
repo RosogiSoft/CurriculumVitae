@@ -11,22 +11,22 @@
 <VBox fillWidth="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="500.0" styleClass="background" stylesheets="@avatar_style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.curriculumvitae.NewAvatarController">
     <children>
       <Label prefHeight="58.0" prefWidth="581.0" styleClass="header" stylesheets="@avatar_style.css" text="Прикрепите ваше фото" />
-        <ImageView fx:id="imageView" cache="true" fitHeight="392.0" fitWidth="429.0" pickOnBounds="true" smooth="false">
+        <ImageView fx:id="imageView" cache="true" fitHeight="356.0" fitWidth="429.0" pickOnBounds="true" smooth="false">
          <VBox.margin>
-            <Insets left="20.0" right="20.0" />
+            <Insets bottom="10.0" left="20.0" right="20.0" />
          </VBox.margin>
       </ImageView>
-      <HBox prefHeight="46.0" prefWidth="458.0" spacing="37.0">
+      <HBox prefHeight="46.0" prefWidth="426.0" spacing="30.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#zoomIn" styleClass="button_choose" stylesheets="@avatar_style.css" text="+" />
-            <Button mnemonicParsing="false" onAction="#zoomOut" styleClass="button_choose" stylesheets="@avatar_style.css" text="-" />
-            <Button mnemonicParsing="false" onAction="#shiftLeft" styleClass="button_choose" stylesheets="@avatar_style.css" text="←" />
-             <Button mnemonicParsing="false" onAction="#shiftUp" styleClass="button_choose" stylesheets="@avatar_style.css" text="↑" />
-             <Button mnemonicParsing="false" onAction="#shiftRight" styleClass="button_choose" stylesheets="@avatar_style.css" text="→" />
-             <Button mnemonicParsing="false" onAction="#shiftDown" styleClass="button_choose" stylesheets="@avatar_style.css" text="↓" />
+            <Button mnemonicParsing="false" onAction="#zoomIn" prefHeight="44.0" prefWidth="45.0" styleClass="button_choose" stylesheets="@avatar_style.css" text="+" />
+            <Button mnemonicParsing="false" onAction="#zoomOut" prefWidth="45.0" styleClass="button_choose" stylesheets="@avatar_style.css" text="-" />
+            <Button mnemonicParsing="false" onAction="#shiftLeft" prefWidth="45.0" styleClass="button_choose" stylesheets="@avatar_style.css" text="←" />
+             <Button mnemonicParsing="false" onAction="#shiftUp" prefWidth="45.0" styleClass="button_choose" stylesheets="@avatar_style.css" text="↑" />
+             <Button mnemonicParsing="false" onAction="#shiftRight" prefWidth="45.0" styleClass="button_choose" stylesheets="@avatar_style.css" text="→" />
+             <Button mnemonicParsing="false" onAction="#shiftDown" prefWidth="45.0" styleClass="button_choose" stylesheets="@avatar_style.css" text="↓" />
          </children>
          <VBox.margin>
-            <Insets left="15.0" />
+            <Insets bottom="10.0" left="20.0" />
          </VBox.margin>
       </HBox>
         <HBox fillHeight="false" prefHeight="43.0" prefWidth="640.0" VBox.vgrow="NEVER">

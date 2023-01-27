@@ -11,7 +11,7 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="500.0" spacing="10.0" styleClass="background" stylesheets="@education_style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.curriculumvitae.EducationController">
     <children>
-        <Label prefHeight="104.0" prefWidth="480.0" styleClass="header" stylesheets="@education_style.css" text="Укажите информации о вашем образовании:" wrapText="true">
+        <Label prefHeight="104.0" prefWidth="480.0" styleClass="header" stylesheets="@education_style.css" text="Укажите информацию о вашем образовании:" wrapText="true">
             <VBox.margin>
                 <Insets top="10.0" />
             </VBox.margin>
