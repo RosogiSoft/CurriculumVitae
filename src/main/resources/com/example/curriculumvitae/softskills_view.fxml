@@ -9,40 +9,58 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="500.0" spacing="15.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.curriculumvitae.SoftSkillsController">
    <padding>
-      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+      <Insets left="20.0" right="20.0" top="5.0" />
    </padding>
    <children>
-      <Label text="Выберите 5 наиболее подходящих вам софт-скилов" />
+      <Label prefHeight="121.0" prefWidth="490.0" styleClass="header" stylesheets="@softskills_style.css" text="Выберите 5 наиболее подходящих вам софт-скилов" wrapText="true" />
       <HBox prefHeight="50.0" prefWidth="200.0" spacing="5.0">
          <children>
-            <Label text="№1." />
-            <ChoiceBox fx:id="skillOne" prefHeight="25.0" prefWidth="454.0" />
+            <Label styleClass="sec_header" stylesheets="@softskills_style.css" text="№1." />
+            <ChoiceBox fx:id="skillOne" prefHeight="39.0" prefWidth="419.0" styleClass="field" stylesheets="@softskills_style.css">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin></ChoiceBox>
+         </children>
+         <VBox.margin>
+            <Insets top="30.0" />
+         </VBox.margin>
+      </HBox>
+      <HBox prefHeight="50.0" prefWidth="200.0" spacing="5.0">
+         <children>
+            <Label styleClass="sec_header" stylesheets="@softskills_style.css" text="№2." />
+            <ChoiceBox fx:id="skillTwo" prefHeight="25.0" prefWidth="419.0" styleClass="field" stylesheets="@softskills_style.css" />
          </children>
       </HBox>
       <HBox prefHeight="50.0" prefWidth="200.0" spacing="5.0">
          <children>
-            <Label text="№2." />
-            <ChoiceBox fx:id="skillTwo" prefHeight="25.0" prefWidth="454.0" />
+            <Label styleClass="sec_header" stylesheets="@softskills_style.css" text="№3." />
+            <ChoiceBox fx:id="skillThree" prefHeight="25.0" prefWidth="419.0" styleClass="field" stylesheets="@softskills_style.css" />
          </children>
       </HBox>
       <HBox prefHeight="50.0" prefWidth="200.0" spacing="5.0">
          <children>
-            <Label text="№3." />
-            <ChoiceBox fx:id="skillThree" prefHeight="25.0" prefWidth="454.0" />
+            <Label styleClass="sec_header" stylesheets="@softskills_style.css" text="№4." />
+            <ChoiceBox fx:id="skillFour" prefHeight="25.0" prefWidth="419.0" styleClass="field" stylesheets="@softskills_style.css" />
          </children>
       </HBox>
       <HBox prefHeight="50.0" prefWidth="200.0" spacing="5.0">
          <children>
-            <Label text="№4." />
-            <ChoiceBox fx:id="skillFour" prefHeight="25.0" prefWidth="454.0" />
+            <Label styleClass="sec_header" stylesheets="@softskills_style.css" text="№5." />
+            <ChoiceBox fx:id="skillFive" prefHeight="25.0" prefWidth="419.0" styleClass="field" stylesheets="@softskills_style.css" />
          </children>
       </HBox>
-      <HBox prefHeight="50.0" prefWidth="200.0" spacing="5.0">
+      <HBox prefHeight="50.0" prefWidth="460.0">
          <children>
-            <Label text="№5." />
-            <ChoiceBox fx:id="skillFive" prefHeight="25.0" prefWidth="454.0" />
+            <Label prefHeight="17.0" prefWidth="375.0" />
+            <Button mnemonicParsing="false" onAction="#nextButton" prefHeight="44.0" prefWidth="114.0" stylesheets="@softskills_style.css" text="Дальше">
+               <HBox.margin>
+                  <Insets top="40.0" />
+               </HBox.margin>
+            </Button>
          </children>
       </HBox>
-      <Button mnemonicParsing="false" onAction="#nextButton" text="Далее" />
    </children>
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
 </VBox>
