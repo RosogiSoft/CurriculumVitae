@@ -1,5 +1,6 @@
 package com.example.curriculumvitae;
 
+import com.example.curriculumvitae.databaseModel.DataBaseConnect;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -10,6 +11,7 @@ import java.io.IOException;
 public class StartApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
+        DataBaseConnect.getConnectionData();
         FXMLLoader fxmlLoader = new FXMLLoader(StartApplication.class.getResource("welcome_view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 500, 600);
         stage.setTitle("Resume");

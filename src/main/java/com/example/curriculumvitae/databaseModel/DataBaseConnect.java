@@ -2,16 +2,43 @@ package com.example.curriculumvitae.databaseModel;
 
 import com.example.curriculumvitae.helper.Person;
 
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Properties;
 
 public class DataBaseConnect {
 
-    private static final String url = "jdbc:mysql://45.10.43.194:3306/RESUME";
-    private static final String user = "igorvasiltsev";
-    private static final String password = "45034691";
+    private static String url;
+    private static String user;
+    private static String password;
 
+
+    public static void getConnectionData(){
+        FileInputStream fileInputStream;
+        Properties properties = new Properties();
+
+        try {
+            fileInputStream = new FileInputStream("src/main/resources/com/example/curriculumvitae/connection.properties");
+            properties.load(fileInputStream);
+
+            url = properties.getProperty("db.host");
+            user = properties.getProperty("db.login");
+            password = properties.getProperty("db.password");
+
+            System.out.println("Host: " + url);
+            System.out.println("Login: " + user);
+            System.out.println("Password: " + password);
+        } catch (FileNotFoundException e) {
+            System.err.println("Файл конфигурации отсутсвует!");
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            System.err.println("Ошибка при загрузке конфигурационного файла!");
+            throw new RuntimeException(e);
+        }
+    }
 
     private static Connection connect() throws SQLException {
         return DriverManager.getConnection(url, user, password);
