@@ -8,12 +8,14 @@ import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Properties;
+import java.util.logging.Logger;
 
 public class DataBaseConnect {
 
     private static String url;
     private static String user;
     private static String password;
+    private static final Logger logger = Logger.getLogger(DataBaseConnect.class.getName());
 
 
     public static void getConnectionData(){
@@ -28,14 +30,14 @@ public class DataBaseConnect {
             user = properties.getProperty("db.login");
             password = properties.getProperty("db.password");
 
-            System.out.println("Host: " + url);
-            System.out.println("Login: " + user);
-            System.out.println("Password: " + password);
+            logger.info("Host: " + url);
+            logger.info("Login: " + user);
+            logger.info("Password: " + password);
         } catch (FileNotFoundException e) {
-            System.err.println("Файл конфигурации отсутсвует!");
+            logger.info("Файл конфигурации отсутсвует!");
             throw new RuntimeException(e);
         } catch (IOException e) {
-            System.err.println("Ошибка при загрузке конфигурационного файла!");
+            logger.info("Ошибка при загрузке конфигурационного файла!");
             throw new RuntimeException(e);
         }
     }
@@ -166,12 +168,12 @@ public class DataBaseConnect {
 
     public static ArrayList<String> getSoftSkills() {
         ArrayList<String> softSkills = new ArrayList<>();
-        String sqlQ = "SELECT Soft_Skill FROM RESUME.Soft_Skills";
+        String sqlQ = "SELECT SOFTSKILLS FROM RESUME.Soft_Skills";
         try(Connection conn = connect()){
             Statement statement = conn.createStatement();
             ResultSet rs = statement.executeQuery(sqlQ);
             while (rs.next()){
-                softSkills.add(rs.getString("Soft_Skill"));
+                softSkills.add(rs.getString("SOFTSKILLS"));
             }
         } catch(SQLException e) {
             e.printStackTrace();

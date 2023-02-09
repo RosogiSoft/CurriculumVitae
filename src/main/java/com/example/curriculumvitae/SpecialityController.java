@@ -76,7 +76,7 @@ public class SpecialityController {
                 finalString += checkBox.getText() + ", ";
             }
         }
-        WelcomeController.person.setSpecialytiInfo(finalString);
+        WelcomeController.person.setSpecialityInfo(finalString);
     }
 
     public void nextButton(ActionEvent actionEvent) throws Exception {

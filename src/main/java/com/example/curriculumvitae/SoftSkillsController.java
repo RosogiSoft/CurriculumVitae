@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class SoftSkillsController {
@@ -47,11 +48,11 @@ public class SoftSkillsController {
     }
 
     private void writeData(){
-        String[] array = new String[choiceBoxes.size()];
+        ArrayList<String> softSkillsList = new ArrayList<>();
         for (int i = 0; i < choiceBoxes.size(); i++){
-            array[i] = choiceBoxes.get(i).getValue().toString();
+            softSkillsList.add(choiceBoxes.get(i).getValue().toString());
         }
-        WelcomeController.person.setSoftSkills(array);
+        WelcomeController.person.setSoftSkills(softSkillsList);
     }
 
     public void nextButton(ActionEvent actionEvent) throws IOException {

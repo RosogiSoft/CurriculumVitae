@@ -3,7 +3,8 @@ package com.example.curriculumvitae.helper;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.logging.Logger;
 
 public class Person {
     private String name;
@@ -24,9 +25,18 @@ public class Person {
     private String formOfStudy;
     private String yearOfEnding;
     private boolean[] competency = new boolean[15];
-    private String specialytiInfo;
-    private String[] softSkills;
+    private String specialityInfo;
+    private final Logger logger = Logger.getLogger(Person.class.getName());
 
+    public ArrayList<String> getSoftSkills() {
+        return softSkills;
+    }
+
+    public void setSoftSkills(ArrayList<String> softSkills) {
+        this.softSkills = softSkills;
+    }
+
+    private ArrayList<String> softSkills;
 
 
     public Person() {
@@ -34,29 +44,30 @@ public class Person {
     }
 
     public void showInfo() {
-        System.out.println("Итоговая инофрмация о человеке: ");
-        System.out.println("Имя: " + this.name + ", Дата рождения: " + this.dateOfBirth);
-        System.out.println("Номер телефона: " + this.phoneNumber + ", Номер телефона: " + this.mailAddress);
-        System.out.println("Социальные сети: " + this.socialNetwork);
-        System.out.println("Номер группы: " + this.groupNumber + "Специальность: " + this.speciality);
-        System.out.println("Дополнительная информация: " + this.additionalInfo);
-        System.out.println("Иностранный язык: " + this.foreignLanguage);
-        System.out.println("Водительское удостоверение: " + this.driverLicense);
-        System.out.println("Дополнительные навыки: " + this.additionalCompetencies);
-        System.out.println("Социальные навыки: " + Arrays.toString(this.softSkills));
+        logger.info("Итоговая информация о человеке: ");
+        logger.info("Имя: " + this.name + ", Дата рождения: " + this.dateOfBirth);
+        logger.info("Номер телефона: " + this.phoneNumber + ", Номер телефона: " + this.mailAddress);
+        logger.info("Социальные сети: " + this.socialNetwork);
+        logger.info("Номер группы: " + this.groupNumber + "Специальность: " + this.speciality);
+        logger.info("Дополнительная информация: " + this.additionalInfo);
+        logger.info("Иностранный язык: " + this.foreignLanguage);
+        logger.info("Водительское удостоверение: " + this.driverLicense);
+        logger.info("Дополнительные навыки: " + this.additionalCompetencies);
+        logger.info("Социальные навыки: " + this.softSkills);
 
 
     }
 
     //Down bellow only setters and getters of Person fields
 
-    public String getSpecialytiInfo() {
-        return specialytiInfo;
+    public String getSpecialityInfo() {
+        return specialityInfo;
     }
 
-    public void setSpecialytiInfo(String specialytiInfo) {
-        this.specialytiInfo = specialytiInfo;
+    public void setSpecialityInfo(String specialityInfo) {
+        this.specialityInfo = specialityInfo;
     }
+
     public String getName() {
         return name;
     }
@@ -201,16 +212,9 @@ public class Person {
     public boolean[] getCompetency() {
         return competency;
     }
+
     public void setCompetency(boolean[] competency) {
         this.competency = competency;
-    }
-
-    public String[] getSoftSkills() {
-        return softSkills;
-    }
-
-    public void setSoftSkills(String[] softSkills) {
-        this.softSkills = softSkills;
     }
 
 

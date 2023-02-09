@@ -72,7 +72,7 @@ public class GeneratorFilling {
 
     public List<Object> personalQualities() {
         ArrayList<Object> personalQualitiesArrayList = new ArrayList<>();
-        personalQualitiesArrayList.add(ParagraphPreprocess.addTextToParagraph(
+       /* personalQualitiesArrayList.add(ParagraphPreprocess.addTextToParagraph(
                 " • Умею работать в команде и общаться с другими людьми.", MAIN_SIZE
         ));
         personalQualitiesArrayList.add(
@@ -83,7 +83,13 @@ public class GeneratorFilling {
         personalQualitiesArrayList.add(
                 ParagraphPreprocess.addTextToParagraph(
                         " • Всегда нацелен на результат и легко адаптируюсь к новым задачам.", MAIN_SIZE
-                ));
+                ));*/
+        if (WelcomeController.person.getSoftSkills() != null){
+            for (String initialString : WelcomeController.person.getSoftSkills()){
+                personalQualitiesArrayList.add(ParagraphPreprocess
+                        .addTextToParagraph(String.format(" • %s", initialString), MAIN_SIZE));
+            }
+        }
         return personalQualitiesArrayList;
     }
 
