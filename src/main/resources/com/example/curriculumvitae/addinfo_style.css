@@ -31,6 +31,10 @@
     -fx-text-fill: #005EAA;
 }
 
+.text-area .content{
+      -fx-background-color: #EBEBEB;
+  }
+
 .field{
     -fx-background-color: #EBEBEB;
     -fx-background-radius: 18px;

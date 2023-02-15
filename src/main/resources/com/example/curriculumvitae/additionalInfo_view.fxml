@@ -25,7 +25,7 @@
                 <Insets left="10.0" right="10.0" />
             </VBox.margin>
         </Label>
-        <TextArea fx:id="additionalTextField" prefHeight="47.0" prefWidth="470.0" promptText="Призер международного чемпионата, победитель национального этапа в компетнции &quot;Ремонт автомобильной техники&quot;..." styleClass="text_frame">
+        <TextArea fx:id="additionalTextField" prefHeight="47.0" prefWidth="470.0" promptText="Призер международного чемпионата, победитель национального этапа в компетнции &quot;Ремонт автомобильной техники&quot;..." styleClass="text_frame" stylesheets="@addinfo_style.css">
             <VBox.margin>
                 <Insets left="10.0" right="10.0" />
             </VBox.margin>
@@ -50,6 +50,16 @@
                 <Insets left="10.0" right="10.0" />
             </VBox.margin>
         </ChoiceBox>
+        <Label prefHeight="35.0" prefWidth="440.0" styleClass="sec_header" stylesheets="@addinfo_style.css" text="Укажите ссылки на ваши социальные сети (ВКонтакте//HH/Github)" wrapText="true">
+            <VBox.margin>
+                <Insets left="10.0" right="10.0" />
+            </VBox.margin>
+        </Label>
+        <TextField fx:id="socialNetwork" promptText="\@example.com" styleClass="field" stylesheets="@addinfo_style.css">
+            <VBox.margin>
+                <Insets left="10.0" right="10.0" />
+            </VBox.margin>
+        </TextField>
         <Label prefHeight="10.0" prefWidth="440.0" styleClass="sec_header" stylesheets="@addinfo_style.css" text="Перечислите ваши профессиональные навыки" wrapText="true">
             <VBox.margin>
                 <Insets left="10.0" right="10.0" />
@@ -60,16 +70,6 @@
                 <Insets left="10.0" right="10.0" />
             </VBox.margin>
         </TextArea>
-        <Label prefHeight="35.0" prefWidth="440.0" styleClass="sec_header" stylesheets="@addinfo_style.css" text="Укажите ссылки на ваши социальные сети (ВКонтакте//HH/Github)" wrapText="true">
-            <VBox.margin>
-                <Insets left="10.0" right="10.0" />
-            </VBox.margin>
-        </Label>
-        <TextField fx:id="socialNetwork" promptText="\@example.com" styleClass="text_frame" stylesheets="@addinfo_style.css">
-            <VBox.margin>
-                <Insets left="10.0" right="10.0" />
-            </VBox.margin>
-        </TextField>
         <HBox prefHeight="30.0" prefWidth="490.0">
             <children>
                 <Label prefHeight="18.0" prefWidth="424.0" />

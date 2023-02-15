@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="500.0" styleClass="background" stylesheets="@main_style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label prefHeight="72.0" prefWidth="460.0" styleClass="header" stylesheets="@main_style.css" text="Место работы " wrapText="true">
+         <VBox.margin>
+            <Insets bottom="50.0" top="15.0" />
+         </VBox.margin>
+      </Label>
+      <VBox prefHeight="59.0" prefWidth="500.0">
+         <children>
+            <Label prefHeight="30.0" prefWidth="459.0" styleClass="sec_header" stylesheets="@main_style.css" text="Укажите место работы">
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
+            </Label>
+            <TextField prefHeight="39.0" prefWidth="419.0" styleClass="field" stylesheets="@main_style.css" />
+         </children>
+         <VBox.margin>
+            <Insets bottom="10.0" />
+         </VBox.margin>
+      </VBox>
+      <VBox prefHeight="63.0" prefWidth="500.0">
+         <children>
+            <Label prefHeight="30.0" prefWidth="427.0" styleClass="sec_header" stylesheets="@main_style.css" text="Укажите вашу должность">
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
+            </Label>
+            <TextField prefHeight="39.0" prefWidth="419.0" styleClass="field" stylesheets="@main_style.css" />
+         </children>
+         <VBox.margin>
+            <Insets bottom="10.0" />
+         </VBox.margin>
+      </VBox>
+      <VBox prefHeight="123.0" prefWidth="460.0">
+         <VBox.margin>
+            <Insets bottom="15.0" />
+         </VBox.margin>
+         <children>
+            <Label prefHeight="30.0" prefWidth="427.0" styleClass="sec_header" stylesheets="@main_style.css" text="Укажите месяц и год начала работы" />
+            <TextField prefHeight="39.0" prefWidth="419.0" styleClass="field" stylesheets="@main_style.css" />
+         </children>
+      </VBox>
+      <VBox prefHeight="200.0" prefWidth="100.0">
+         <children>
+            <Label prefHeight="52.0" prefWidth="460.0" styleClass="sec_header" stylesheets="@main_style.css" text="Опишите ваши обязанности" wrapText="true" />
+            <TextArea prefHeight="200.0" prefWidth="200.0" styleClass="text_frame" stylesheets="@addinfo_style.css" />
+         </children>
+      </VBox>
+      <HBox prefHeight="60.0" prefWidth="460.0">
+         <children>
+            <Label prefHeight="17.0" prefWidth="375.0" />
+            <Button mnemonicParsing="false" onAction="#nextButton" prefHeight="44.0" prefWidth="114.0" stylesheets="@softskills_style.css" text="Дальше">
+               <HBox.margin>
+                  <Insets bottom="15.0" top="40.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+   </children>
+   <padding>
+      <Insets left="20.0" right="20.0" />
+   </padding>
+</VBox>
