@@ -56,8 +56,8 @@ public class SoftSkillsController {
     }
 
     public void nextButton(ActionEvent actionEvent) throws IOException {
-        writeData();
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("final_view.fxml")));
+        //writeData();
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("work_view.fxml")));
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);

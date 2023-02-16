@@ -97,7 +97,7 @@
                                 <String fx:value="check-box" />
                             </styleClass>
                         </CheckBox>
-                        <CheckBox fx:id="checkBox9" mnemonicParsing="false" prefHeight="38.0" prefWidth="868.0" snapToPixel="false" stylesheets="@speciality_style.css" wrapText="true" VBox.vgrow="NEVER">
+                        <CheckBox fx:id="checkBox9" mnemonicParsing="false" prefWidth="465.0" snapToPixel="false" stylesheets="@speciality_style.css" wrapText="true" VBox.vgrow="NEVER">
                             <VBox.margin>
                                 <Insets />
                             </VBox.margin>
