@@ -54,8 +54,6 @@ public class Person {
         logger.info("Водительское удостоверение: " + this.driverLicense);
         logger.info("Дополнительные навыки: " + this.additionalCompetencies);
         logger.info("Социальные навыки: " + this.softSkills);
-
-
     }
 
     //Down bellow only setters and getters of Person fields
