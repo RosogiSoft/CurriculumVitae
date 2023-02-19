@@ -12,8 +12,11 @@ import javafx.stage.Stage;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.logging.Logger;
 
 public class SpecialityController {
+
+    private final Logger logger = Logger.getLogger(SpecialityController.class.getName());
 
     public CheckBox checkBox1;
     public CheckBox checkBox2;
@@ -31,6 +34,7 @@ public class SpecialityController {
     public CheckBox checkBox14;
     public CheckBox checkBox15;
     ArrayList<CheckBox> checkBoxes;
+
 
     public void initialize() {
         setTextBySpecCode(setCheckBoxArrayList(), WelcomeController.person.getSpecialityCode());
@@ -70,16 +74,21 @@ public class SpecialityController {
     }
 
     private void getCompetency(){
-        String finalString = "";
+        ArrayList<String> competencyShit = new ArrayList<>();
+        StringBuilder finalString = new StringBuilder();
         for (CheckBox checkBox : checkBoxes){
-            if (checkBox.isArmed()){
-                finalString += checkBox.getText() + ", ";
+            if (checkBox.isSelected()){
+                finalString.append(" • ").append(checkBox.getText()).append(";\n");
+                competencyShit.add(checkBox.getText());
+                logger.info(finalString.toString());
             }
         }
-        WelcomeController.person.setSpecialityInfo(finalString);
+        WelcomeController.person.setCompetency(competencyShit);
+        WelcomeController.person.setSpecialityInfo(finalString.toString());
     }
 
     public void nextButton(ActionEvent actionEvent) throws Exception {
+        getCompetency();
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("education_veiw.fxml")));
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);

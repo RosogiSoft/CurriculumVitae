@@ -34,8 +34,8 @@ public class SoftSkillsController {
 
     public void initialize(){
         addChoiceBoxes();
-        for (int i = 0; i < softSkills.size(); i++){
-            choiceBoxes.get(i).getItems().addAll(softSkills);
+        for (ChoiceBox choiceBox : choiceBoxes) {
+            choiceBox.getItems().addAll(softSkills);
         }
     }
 
@@ -49,14 +49,15 @@ public class SoftSkillsController {
 
     private void writeData(){
         ArrayList<String> softSkillsList = new ArrayList<>();
-        for (int i = 0; i < choiceBoxes.size(); i++){
-            softSkillsList.add(choiceBoxes.get(i).getValue().toString());
+        for (ChoiceBox choiceBox : choiceBoxes) {
+            softSkillsList.add(choiceBox.getValue().toString());
         }
         WelcomeController.person.setSoftSkills(softSkillsList);
     }
 
     public void nextButton(ActionEvent actionEvent) throws IOException {
         writeData();
+        DataBaseConnect.addFullDataStudent(WelcomeController.person);
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("final_view.fxml")));
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);

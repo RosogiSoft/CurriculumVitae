@@ -24,7 +24,7 @@ public class Person {
     private String faculty;
     private String formOfStudy;
     private String yearOfEnding;
-    private boolean[] competency = new boolean[15];
+    private ArrayList<String> competency;
     private String specialityInfo;
     private final Logger logger = Logger.getLogger(Person.class.getName());
 
@@ -54,7 +54,6 @@ public class Person {
         logger.info("Водительское удостоверение: " + this.driverLicense);
         logger.info("Дополнительные навыки: " + this.additionalCompetencies);
         logger.info("Социальные навыки: " + this.softSkills);
-
 
     }
 
@@ -209,13 +208,12 @@ public class Person {
         this.yearOfEnding = yearOfEnding;
     }
 
-    public boolean[] getCompetency() {
+    public ArrayList<String> getCompetency() {
         return competency;
     }
 
-    public void setCompetency(boolean[] competency) {
+    public void setCompetency(ArrayList<String> competency) {
         this.competency = competency;
     }
-
 
 }

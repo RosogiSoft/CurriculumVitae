@@ -166,8 +166,6 @@ public class AvatarController {
 
     public void nextButton(ActionEvent actionEvent) throws IOException {
         WelcomeController.person.setImage(selectedFile);
-        DataBaseConnect.addData(WelcomeController.person);
-        DataBaseConnect.addDataPic(WelcomeController.person);
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("speciality_view.fxml")));
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
